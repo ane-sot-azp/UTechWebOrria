@@ -1,0 +1,187 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
+  <diagram name="Página-1" id="FbP1y8tospe4EU1vQt8n">
+    <mxGraphModel dx="1122" dy="1709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-1" value="Erabiltzailea&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-5" value="Administratzailea&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="504.5" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-6" value="HTML bidez web orriaren kodea aldatu" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="504.5" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-7" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="544.5" as="sourcePoint" />
+            <mxPoint x="220" y="544.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-8" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;endFill=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="85" y="300" as="sourcePoint" />
+            <mxPoint x="84.5" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-9" value="Bannerak, argazki karruselak eta notiziak ikusi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="-260" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-10" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="160" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-11" value="Nor gara atalera sartu" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="-220" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-12" value="Premium erabiltzailea" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="310" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-14" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;endFill=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="85" y="490" as="sourcePoint" />
+            <mxPoint x="84.5" y="394.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-16" value="Produktuen katalogoa ikusi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="-130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-17" value="Zure produktuak saldu" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="170" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-18" value="Enpresaren kontaktuak ikusi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-20" value="Bilatzailea erabili" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="-50" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-21" value="Erosketa saskira sartu" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-22" value="Saioa hasi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="250" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-23" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="201" y="-170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-24" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="315" y="-144" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-25" value="" style="endArrow=none;html=1;rounded=0;entryX=0.093;entryY=0.833;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="325" y="-134" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-26" value="" style="endArrow=none;html=1;rounded=0;entryX=0.023;entryY=0.713;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="490" y="10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-27" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="492" y="34" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-28" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="480" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-29" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.375;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint" />
+            <mxPoint x="510" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-30" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" target="so4owkNpq1mxeRNhr6Jz-22">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="620" y="320" as="sourcePoint" />
+            <mxPoint x="780" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-31" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0.267;exitY=0.913;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-41" target="so4owkNpq1mxeRNhr6Jz-22">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="909.9993194809476" y="235.55989094561897" as="sourcePoint" />
+            <mxPoint x="1004.8700000000001" y="280.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-32" value="Enpresaren historia, helburuak eta langileak ikusi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="-330" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-33" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="-200" as="sourcePoint" />
+            <mxPoint x="390" y="-200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-34" value="Argazkiak, informazio laburtua eta prezioak ikusi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="-220" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-35" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.053;exitY=0.758;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="-160" as="sourcePoint" />
+            <mxPoint x="520" y="-110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-37" value="Kokapena eta telefono zenbakiak ikusi&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%26amp%3Blt%3B%26amp%3Blt%3Bextend%26amp%3Bgt%3B%26amp%3Bgt%3B%22%20style%3D%22html%3D1%3BverticalAlign%3Dbottom%3BendArrow%3Dopen%3Bdashed%3D1%3BendSize%3D8%3Bcurved%3D0%3Brounded%3D0%3B%22%20edge%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20relative%3D%221%22%20as%3D%22geometry%22%3E%3CmxPoint%20x%3D%22470%22%20y%3D%22-260%22%20as%3D%22sourcePoint%22%2F%3E%3CmxPoint%20x%3D%22390%22%20y%3D%22-200%22%20as%3D%22targetPoint%22%2F%3E%3C%2FmxGeometry%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="707" y="-20" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-38" value="Formularioa bete" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="717" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-39" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.052;exitY=0.728;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="707" y="31" as="sourcePoint" />
+            <mxPoint x="631" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-40" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="716" y="60" as="sourcePoint" />
+            <mxPoint x="640" y="109" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-41" value="Produktuaren informazioarekin formularioa bete" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="150" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-42" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.02;exitY=0.383;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-17" target="so4owkNpq1mxeRNhr6Jz-41">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="200" as="sourcePoint" />
+            <mxPoint x="793" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-44" value="Premium zerbitzuen atalera sartu" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-45" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="350" as="sourcePoint" />
+            <mxPoint x="270" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-46" value="Saioa hasi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="420" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="so4owkNpq1mxeRNhr6Jz-47" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.099;entryY=0.216;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="so4owkNpq1mxeRNhr6Jz-44" target="so4owkNpq1mxeRNhr6Jz-46">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="310" y="450" as="sourcePoint" />
+            <mxPoint x="422" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

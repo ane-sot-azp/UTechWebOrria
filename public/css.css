@@ -1,0 +1,769 @@
+/*Orokorra*/
+/* Koloreak */
+:root {
+  --urdinIlunena: #00424f;
+  --urdinIluna: #006477;
+  --urdina: #009cbc;
+  --urdinArgia: #61c3d9;
+  --urdinArgiena: #aedcea;
+  --urdinArgienaFondo: #d9e9ee7b;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+body {
+  font-size: 20px;
+  text-align: justify;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+
+p,
+li,
+h4 {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+h1,
+header {
+  display: inline;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+h3 {
+  color: white;
+}
+
+h2 {
+  border-bottom: 15px solid var(--urdinIlunena);
+  text-indent: 40px;
+}
+/*Hasiera*/
+
+.logo {
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+
+.deskontuak {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+div.produktuak > h1 {
+  display: block;
+  font-size: 40px;
+  background-color: white;
+  color: var(--urdina);
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.imagenes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 10px;
+  margin: auto;
+  margin-top: 10px;
+  padding: 8px;
+  text-align: center;
+}
+
+.deskribapena {
+  text-align: center;
+}
+
+.imagen {
+  text-align: center;
+}
+
+.imagenes > div > a.irudiak > img {
+  width: auto;
+  height: 250px;
+  box-shadow: 0px 0px 5px lightgray;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.albiste {
+  /* background-color: var(--urdinArgienaFondo); */
+  border-radius: 10px;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "albiste1 albiste2";
+  gap: 2.5%;
+  margin: 5%;
+  padding: 5px;
+  justify-content: center;
+}
+.albiste p {
+  font-size: 15px;
+}
+.albisteak1 {
+  grid-area: albiste1;
+}
+.albisteak2 {
+  grid-area: albiste2;
+}
+
+.albisteak1,
+.albisteak2 {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-areas:
+    "izenburua izenburua"
+    "laburpena laburpena"
+    "albistea albistea"
+    "albisteIrudia albisteIrudia";
+  gap: 2.5%;
+  margin: 5%;
+  justify-content: center;
+  height: max-content;
+}
+
+.albisteIrudia {
+  grid-area: albisteIrudia;
+}
+
+.albisteIrudia1,
+.albisteIrudia2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.izenburua {
+  grid-area: izenburua;
+}
+
+.laburpena {
+  grid-area: laburpena;
+}
+
+.albistea {
+  grid-area: albistea;
+  height: 350px;
+  margin-bottom: 10px;
+}
+
+/*Produktuak saldu*/
+/* h2#formularioa {
+  font-size: 30px;
+  height: 70px;
+  border-bottom: 15px solid var(--urdinIlunena);
+  text-indent: 0;
+}
+
+.formularioa {
+  display: grid;
+  grid-template-columns: 48.5% 48.5%;
+  grid-template-areas: "produktua hornitzailea";
+  margin: 2%;
+  margin-top: 1%;
+  gap: 3%;
+  padding: 10px;
+}
+
+select#mota {
+  width: 200px;
+  height: 28px;
+  font-size: 16px;
+  padding: 2px;
+}
+
+input {
+  width: 100%;
+}
+
+input[type="color"] {
+  width: 100px;
+  height: 40px;
+}
+
+.produktua {
+  grid-area: produktua;
+}
+
+.produktua {
+  position: relative;
+  box-sizing: border-box;
+  border: 5px solid var(--urdinIlunena);
+  border-radius: 10px;
+  padding: 25px;
+  text-align: left;
+  height: 100%;
+}
+
+input.botoiak1 {
+  width: 100%;
+  margin-top: 1%;
+  background-color: var(--urdinIlunena);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+} */
+/* Logina */
+.login h2 {
+  text-indent: 0;
+}
+
+.login {
+  display: grid;
+  grid-template-areas: "saioaHasi erregistratu";
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  color: var(--urdinIlunena);
+  padding: 2%;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 15px;
+}
+.login h3 {
+  color: var(--urdinIlunena);
+  font-size: 30px;
+  /* text-align: center; */
+}
+.login button {
+  width: 90%;
+  height: 40px;
+  background-color: var(--urdinIluna);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+}
+.login button:hover {
+  background-color: var(--urdinArgia);
+  color: var(--urdinIlunena);
+  cursor: pointer;
+}
+#saioHasiera {
+  grid-area: "saioaHasi";
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  margin-right: 5%;
+}
+#erregistroa {
+  grid-area: "erregistratu";
+  text-align: center;
+  border-left: 3px solid var(--urdinIluna);
+  padding-left: 10%;
+}
+
+#login input {
+  width: 90%;
+  height: 20px;
+}
+
+/*Kontaktua*/
+
+.kontaktua {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-areas:
+    "hornitzailea infoForm"
+    "hornitzailea infoForm"
+    "mapa mapa";
+  gap: 40px;
+  row-gap: 10px;
+  /* padding: 40px; */
+  margin-left: 0;
+  margin-right: 0;
+}
+.mapa {
+  width: 100%;
+  height: 500px;
+  grid-area: mapa;
+  margin-top: 20px;
+  bottom: 10px;
+}
+.mapa h2{
+  margin-left: 20px;
+  width: 98%;
+}
+/* .helbidea {
+  grid-area: helbidea;
+} */
+/* div.helbidea > div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+} */
+
+.required {
+  color: red;
+  vertical-align: middle;
+  font-size: 1.2em;
+  margin-left: 6px;
+}
+.hornitzailea {
+  height: 500px;
+  padding: 20px;
+  grid-area: hornitzailea;
+}
+
+.infoForm {
+  height: 500px;
+  padding: 20px;
+  grid-area: infoForm;
+}
+
+input {
+  font-size: 18px;
+}
+
+input.kont {
+  width: 100%;
+}
+
+textarea.kont {
+  width: 100%;
+  height: 100px;
+  font-size: 18px;
+}
+
+input.botoiak {
+  width: 48%;
+  margin: 1%;
+  background-color: var(--urdinIlunena);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/*Nor gara*/
+.historiaIzenb {
+  grid-area: h2Historia;
+}
+
+.helburuakIzenb {
+  grid-area: h2Helburuak;
+}
+
+.hisIrudia {
+  grid-area: hisIrudia;
+}
+
+.helIrudia {
+  grid-area: helIrudia;
+}
+
+.historia {
+  grid-area: pHistoria;
+}
+
+.helburuak {
+  grid-area: pHelburuak;
+}
+
+div.norGara {
+  display: grid;
+  grid-template-areas:
+    "h2Historia h2Historia h2Historia"
+    "hisIrudia pHistoria pHistoria"
+    "h2Helburuak h2Helburuak h2Helburuak"
+    "pHelburuak pHelburuak helIrudia";
+  align-items: center;
+}
+
+.norGaraIrudiak {
+  max-width: 100%;
+  padding: 30px;
+  align-items: center;
+}
+
+.helburuak,
+.historia {
+  padding: 10px;
+}
+
+p.helburuak,
+p.historia {
+  text-align: left;
+}
+
+h2.historia,
+h2.helburuak {
+  border-bottom: 30px solid var(--urdinIlunena);
+  text-indent: 40px;
+}
+
+p.helburuak::first-letter,
+p.historia::first-letter {
+  font-size: 150%;
+  color: var(--urdinIlunena);
+}
+
+/*KATALOGOA*/
+div.general .produktuakKat .produktuaKat img {
+  max-width: 70%;
+  align-items: center;
+  justify-content: center;
+}
+div.general {
+  display: grid;
+  grid-template-columns: 24% 72%;
+  grid-template-areas:
+    "sidebar produktuak";
+  gap: 1%;
+  border-radius: 10px;
+  margin: 2%;
+  /*height: max-content;*/
+}
+/* div.general > div > p {
+  font-size: 16px;
+} */
+
+.sidebar {
+  grid-area: sidebar;
+}
+.produktuakKat{
+  grid-area: produktuak;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: min-content; /* Las filas tendrán solo la altura necesaria */
+  gap: 1%;
+  border-radius: 5px;
+  margin: 2%;
+}
+
+.produktuaKat {
+  box-sizing: border-box;
+  width: 100%;
+  /*height: 100%;*/
+  justify-items: center;
+  border-radius: 10px;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+#argazkia {
+  box-shadow: 0px 0px 5px lightgray;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+div.general div.produktuak div:hover {
+  background-color: var(--urdinArgienaFondo);
+  color: var(--urdinIlunena);
+}
+
+div.general div.sidebar {
+  border-radius: 10px;
+  color: var(--urdinIlunena);
+  padding-top: 10px;
+  background-color: var(--urdinArgienaFondo);
+}
+.saskira{
+  font-size: 36px;
+  bottom: 3px;
+  color: var(--urdinIlunena);
+  cursor: pointer;
+}
+.saskira:link{
+  color: var(--urdinIlunena);
+}
+.saskira:visited{
+  color: var(--urdinIlunena);
+}
+.saskira:hover{
+  color: var(--urdinIluna);
+}
+.saskira:active{
+  color: var(--urdinIluna);
+}
+
+h3.pm {
+  display: inline-block;
+  font-size: 21px;
+  color: var(--urdinIlunena);
+}
+
+input#ezabatu {
+  bottom: 10px;
+  margin: 5px;
+  margin-left: 15px;
+  width: 90%;
+  color: white;
+  background-color: var(--urdinIlunena);
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+input#ezabatu:hover {
+  background-color: var(--urdina);
+  color: white;
+}
+
+ul.prod {
+  list-style-type: none;
+  padding-right: 30px;
+  padding: 5px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+}
+
+.accordion-container {
+  width: 100%;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #020307;
+  box-shadow: 0px 0px 5px #020307;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: white;
+}
+
+.accordion-item input[type="checkbox"].check {
+  display: none;
+}
+
+.accordion-title {
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+.accordion-title h3{
+color: var(--urdinIlunena);
+}
+
+.accordion-title::after {
+  content: "▼";
+  font-size: 14px;
+  transition: transform 1s;
+}
+
+.accordion-item input[type="checkbox"]:checked + .accordion-title::after {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 520px;
+  overflow: hidden;
+  transition: max-height 1s ease;
+  padding: 0 15px;
+}
+
+.accordion-item input[type="checkbox"]:checked ~ .accordion-content {
+  max-height: 0px;
+  padding: 0px;
+}
+
+/* PRODUKTUA */
+.produktuaHandi{
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas: 
+  "argazkia informazioa";
+  margin: 20px;
+}
+.produktuaIrudia{
+  grid-area: argazkia;
+  text-align: center;
+
+}
+.produktuaInfo{
+  grid-area: informazioa;
+}
+div.produktuaHandi div.produktuaIrudia a img{
+  width: 50%;
+}
+.produktuaHandi .produktuaInfo h1{
+  text-align: center;
+  color: black;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.produktuIzena{
+  font-size: 150%;
+}
+.produktubtn{
+  background-color: var(--urdinIluna);
+  border: none;
+  width: 50%;
+  margin: 20px;
+  height: 40px;
+  color: white;
+  font-size: large;
+  border-radius: 10px;
+}
+
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
+
+@media screen and (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .navbar a {
+    font-size: 14px;
+    padding: 10px;
+  }
+  input[type="search"] {
+    font-size: 14px;
+    height: 25px;
+  }
+
+  /* Layout general */
+  body {
+    font-size: 16px;
+    text-align: left;
+    grid-template-rows: auto 1fr auto;
+  }
+  p, li, h4 {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  /* Imágenes */
+  .imagenes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .imagenes > div > a.irudiak > img {
+    height: 150px;
+  }
+
+  /* Albisteak (Noticias) */
+  .albiste {
+    grid-template-columns: 1fr;
+    gap: 5%;
+    margin: 2%;
+  }
+  .albisteak1, .albisteak2 {
+    grid-template-columns: 1fr;
+    gap: 5%;
+    margin: 2%;
+  }
+
+  /* Login */
+  .login {
+    grid-template-areas: 
+      "saioaHasi"
+      "erregistratu";
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  #erregistroa {
+    border-left: none;
+    padding-left: 0;
+  }
+  .login button {
+    width: 100%;
+  }
+
+  /* Kontaktua */
+  .kontaktua {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hornitzailea"
+      "infoForm"
+      "mapa";
+    gap: 10px;
+  }
+  .hornitzailea, .infoForm {
+    height: auto;
+    padding: 10px;
+  }
+  .mapa {
+    height: 300px;
+  }
+
+  /* Nor Gara */
+  .norGara {
+    grid-template-areas:
+      "h2Historia"
+      "hisIrudia"
+      "pHistoria"
+      "h2Helburuak"
+      "helIrudia"
+      "pHelburuak";
+  }
+
+  /* Katalogoa */
+  .general {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidebar"
+      "produktuak";
+    margin: 5%;
+  }
+  .produktuakKat {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Produktua */
+  .produktuaHandi {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "argazkia"
+      "informazioa";
+  }
+  .produktuaIrudia img {
+    width: 80%;
+  }
+  .produktubtn {
+    width: 80%;
+  }
+
+  /* Botones y textos */
+  input.botoiak, input.botoiak1 {
+    font-size: 16px;
+    padding: 10px;
+  }
+  h2, h3 {
+    font-size: 18px;
+  }
+}

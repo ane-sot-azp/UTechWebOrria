@@ -1,0 +1,23 @@
+public: css, irudien karpetak...
+src: funtzioak, db, 
+translation
+views: web orriko orriak. PARTS(header, footer)
+
+
+language:
+
+$server[document_root] // Gure zerbitzariko lehenengo karpeta (localhost)
+
+Orrietan:
+<?php trans("hello")?>
+<?php trans("ourInfo")?>
+
+eus.php:
+<?php
+return{
+    "hello"=>"kaixo",
+    "ourInfo"=>"Gure informazioa"
+}
+
+header.php:
+Konstanteak definitzeko=
