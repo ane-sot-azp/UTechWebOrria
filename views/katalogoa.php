@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>UTech | Katalogoa</title>
-    <link rel="icon" href="irudiak/IKONOAK/favicon_dark.svg" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="irudiak/IKONOAK/favicon_light.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../public/irudiak/IKONOAK/favicon_dark.svg" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="../public/irudiak/IKONOAK/favicon_light.svg" media="(prefers-color-scheme: light)">
     <script src="https://kit.fontawesome.com/83f15f6aab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../public/css.css">
     </linkrel>
@@ -17,14 +17,17 @@
     require_once '../src/db.php';
     $conn = konexioaEgin();
     ?>
+
     <div class="general">
+        <button class="openbtn" onclick="openNav()">☰ Filtratu</button>
         <div class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a><br><br>
             <ul class="prod">
                 <form method="GET">
                     <li>
                         <label for="mota">
                             <h3 class="pm">Produktu mota:</h3>
-                        </label>
+                        </label><br>
                         <select name="mota" id="mota">
                             <option value="">Guztiak</option>
                             <option value="1">Ordenagailuak</option>
@@ -57,7 +60,7 @@
                     <br>
                     <li>
                         <div class="accordion-item">
-                            <input type="checkbox" class="check" id="item2">
+                            <input type="checkbox" class="check mycheck" id="item2">
                             <label class="accordion-title" for="item2">
                                 <h3>Prozesagailua:</h3>
                             </label>
@@ -78,7 +81,7 @@
                     </li> <br>
                     <li>
                         <div class="accordion-item">
-                            <input type="checkbox" class="check" id="item3">
+                            <input type="checkbox" class="check mycheck" id="item3">
                             <label class="accordion-title" for="item3">
                                 <h3>Tamaina (pulgadaka):</h3>
                             </label>
@@ -99,7 +102,7 @@
                     </li><br>
                     <li>
                         <div class="accordion-item">
-                            <input type="checkbox" class="check" id="item4">
+                            <input type="checkbox" class="check mycheck" id="item4">
                             <label class="accordion-title" for="item4">
                                 <h3>Sistema eragilea:</h3>
                             </label>
@@ -120,7 +123,7 @@
                     </li> <br>
                     <li>
                         <div class="accordion-item">
-                            <input type="checkbox" class="check" id="item5">
+                            <input type="checkbox" class="check mycheck" id="item5">
                             <label class="accordion-title" for="item5">
                                 <h3>Prezioa:</h3>
                             </label>
@@ -150,7 +153,25 @@
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script>
+            
+
+            function openNav() {
+                var win = $(window).width();
+                $(".sidebar").css('display', "block");
+                if (win > 480) {
+                    $(".produktuakKat").css('margin-left', 33 + "%");
+                }
+            }
+
+            function closeNav() {
+                var win = $(window).width();
+                $(".sidebar").css('display', "none");
+                if (win > 480) {
+                    $(".produktuakKat").css('margin-left', 0 + "%");
+                }
+            }
             $(document).ready(function () {
+
                 function hautatutakoBaloreak(name) {
                     var baloreak = [];
                     $(`input[name="${name}[]"]:checked`).each(function () {

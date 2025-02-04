@@ -45,7 +45,6 @@ h2 {
   text-indent: 40px;
 }
 /*Hasiera*/
-
 .logo {
   align-items: center;
   width: 100%;
@@ -100,7 +99,6 @@ div.produktuak > h1 {
   margin-right: auto;
 }
 .albiste {
-  /* background-color: var(--urdinArgienaFondo); */
   border-radius: 10px;
   height: fit-content;
   display: grid;
@@ -161,65 +159,6 @@ div.produktuak > h1 {
   margin-bottom: 10px;
 }
 
-/*Produktuak saldu*/
-/* h2#formularioa {
-  font-size: 30px;
-  height: 70px;
-  border-bottom: 15px solid var(--urdinIlunena);
-  text-indent: 0;
-}
-
-.formularioa {
-  display: grid;
-  grid-template-columns: 48.5% 48.5%;
-  grid-template-areas: "produktua hornitzailea";
-  margin: 2%;
-  margin-top: 1%;
-  gap: 3%;
-  padding: 10px;
-}
-
-select#mota {
-  width: 200px;
-  height: 28px;
-  font-size: 16px;
-  padding: 2px;
-}
-
-input {
-  width: 100%;
-}
-
-input[type="color"] {
-  width: 100px;
-  height: 40px;
-}
-
-.produktua {
-  grid-area: produktua;
-}
-
-.produktua {
-  position: relative;
-  box-sizing: border-box;
-  border: 5px solid var(--urdinIlunena);
-  border-radius: 10px;
-  padding: 25px;
-  text-align: left;
-  height: 100%;
-}
-
-input.botoiak1 {
-  width: 100%;
-  margin-top: 1%;
-  background-color: var(--urdinIlunena);
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 18px;
-} */
 /* Logina */
 .login h2 {
   text-indent: 0;
@@ -241,7 +180,6 @@ input.botoiak1 {
 .login h3 {
   color: var(--urdinIlunena);
   font-size: 30px;
-  /* text-align: center; */
 }
 .login button {
   width: 90%;
@@ -287,7 +225,7 @@ input.botoiak1 {
     "mapa mapa";
   gap: 40px;
   row-gap: 10px;
-  /* padding: 40px; */
+
   margin-left: 0;
   margin-right: 0;
 }
@@ -298,17 +236,10 @@ input.botoiak1 {
   margin-top: 20px;
   bottom: 10px;
 }
-.mapa h2{
+.mapa h2 {
   margin-left: 20px;
   width: 98%;
 }
-/* .helbidea {
-  grid-area: helbidea;
-} */
-/* div.helbidea > div {
-  padding-top: 5px;
-  padding-bottom: 5px;
-} */
 
 .required {
   color: red;
@@ -429,37 +360,69 @@ div.general .produktuakKat .produktuaKat img {
   align-items: center;
   justify-content: center;
 }
-div.general {
-  display: grid;
-  grid-template-columns: 24% 72%;
-  grid-template-areas:
-    "sidebar produktuak";
-  gap: 1%;
-  border-radius: 10px;
-  margin: 2%;
-  /*height: max-content;*/
+.sidebar {
+  display: none;
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  background-color: #ffffffe6;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
-/* div.general > div > p {
-  font-size: 16px;
-} */
 
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: white;
+  color: var(--urdinIlunena);
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: white;
+  color: var(--urdina);
+}
 .sidebar {
   grid-area: sidebar;
 }
-.produktuakKat{
+.produktuakKat {
   grid-area: produktuak;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: min-content; /* Las filas tendrán solo la altura necesaria */
-  gap: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   border-radius: 5px;
-  margin: 2%;
+  margin-top: 20px;
 }
 
 .produktuaKat {
-  box-sizing: border-box;
-  width: 100%;
-  /*height: 100%;*/
+  width: 300px;
   justify-items: center;
   border-radius: 10px;
   text-align: center;
@@ -467,6 +430,9 @@ div.general {
 }
 
 #argazkia {
+  width: 250px;
+  height: auto;
+  object-fit: cover;
   box-shadow: 0px 0px 5px lightgray;
   margin-top: 10px;
   margin-bottom: 50px;
@@ -481,24 +447,23 @@ div.general div.sidebar {
   border-radius: 10px;
   color: var(--urdinIlunena);
   padding-top: 10px;
-  background-color: var(--urdinArgienaFondo);
 }
-.saskira{
+.saskira {
   font-size: 36px;
   bottom: 3px;
   color: var(--urdinIlunena);
   cursor: pointer;
 }
-.saskira:link{
+.saskira:link {
   color: var(--urdinIlunena);
 }
-.saskira:visited{
+.saskira:visited {
   color: var(--urdinIlunena);
 }
-.saskira:hover{
+.saskira:hover {
   color: var(--urdinIluna);
 }
-.saskira:active{
+.saskira:active {
   color: var(--urdinIluna);
 }
 
@@ -532,9 +497,41 @@ ul.prod {
   padding-right: 30px;
   padding: 5px;
 }
+select#mota {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  padding: 2px;
+  background: rgba(0, 0, 0, 0);
+  color: var(--urdinIlunena);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 10px;
+}
+select#mota option {
+  background: rgba(0, 0, 0, 0);
+  color: var(--urdinIlunena);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+select option[value="1"] {
+  background: rgba(100, 100, 100, 0);
+}
+
+select option[value="2"] {
+  background: rgba(150, 150, 150, 0);
+}
+
+select option[value="3"] {
+  background: rgba(200, 200, 200, 0);
+}
+
+select option[value="4"] {
+  background: rgba(250, 250, 250, 0);
+}
 
 input[type="checkbox"] {
   width: auto;
+  margin: 10px;
 }
 
 .accordion-container {
@@ -547,11 +544,8 @@ input[type="checkbox"] {
 }
 
 .accordion-item {
-  border-bottom: 1px solid #020307;
-  box-shadow: 0px 0px 5px #020307;
   padding-right: 10px;
   padding-left: 10px;
-  background-color: white;
 }
 
 .accordion-item input[type="checkbox"].check {
@@ -566,8 +560,8 @@ input[type="checkbox"] {
   justify-content: space-between;
   height: 50px;
 }
-.accordion-title h3{
-color: var(--urdinIlunena);
+.accordion-title h3 {
+  color: var(--urdinIlunena);
 }
 
 .accordion-title::after {
@@ -581,46 +575,45 @@ color: var(--urdinIlunena);
 }
 
 .accordion-content {
-  max-height: 520px;
+  max-height: 0px;
   overflow: hidden;
   transition: max-height 1s ease;
-  padding: 0 15px;
+  padding: 0px;
 }
 
 .accordion-item input[type="checkbox"]:checked ~ .accordion-content {
   max-height: 0px;
-  padding: 0px;
+  max-height: 520px;
+  padding: 0 15px;
 }
 
 /* PRODUKTUA */
-.produktuaHandi{
+.produktuaHandi {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  grid-template-areas: 
-  "argazkia informazioa";
+  grid-template-areas: "argazkia informazioa";
   margin: 20px;
 }
-.produktuaIrudia{
+.produktuaIrudia {
   grid-area: argazkia;
   text-align: center;
-
 }
-.produktuaInfo{
+.produktuaInfo {
   grid-area: informazioa;
 }
-div.produktuaHandi div.produktuaIrudia a img{
+div.produktuaHandi div.produktuaIrudia a img {
   width: 50%;
 }
-.produktuaHandi .produktuaInfo h1{
+.produktuaHandi .produktuaInfo h1 {
   text-align: center;
   color: black;
   margin-left: 5%;
   margin-right: 5%;
 }
-.produktuIzena{
+.produktuIzena {
   font-size: 150%;
 }
-.produktubtn{
+.produktubtn {
   background-color: var(--urdinIluna);
   border: none;
   width: 50%;
@@ -630,7 +623,6 @@ div.produktuaHandi div.produktuaIrudia a img{
   font-size: large;
   border-radius: 10px;
 }
-
 
 .no-results {
   text-align: center;
@@ -661,7 +653,9 @@ div.produktuaHandi div.produktuaIrudia a img{
     text-align: left;
     grid-template-rows: auto 1fr auto;
   }
-  p, li, h4 {
+  p,
+  li,
+  h4 {
     margin-left: 2%;
     margin-right: 2%;
   }
@@ -680,7 +674,8 @@ div.produktuaHandi div.produktuaIrudia a img{
     gap: 5%;
     margin: 2%;
   }
-  .albisteak1, .albisteak2 {
+  .albisteak1,
+  .albisteak2 {
     grid-template-columns: 1fr;
     gap: 5%;
     margin: 2%;
@@ -688,7 +683,7 @@ div.produktuaHandi div.produktuaIrudia a img{
 
   /* Login */
   .login {
-    grid-template-areas: 
+    grid-template-areas:
       "saioaHasi"
       "erregistratu";
     grid-template-columns: 1fr;
@@ -713,7 +708,8 @@ div.produktuaHandi div.produktuaIrudia a img{
       "mapa";
     gap: 10px;
   }
-  .hornitzailea, .infoForm {
+  .hornitzailea,
+  .infoForm {
     height: auto;
     padding: 10px;
   }
@@ -743,6 +739,10 @@ div.produktuaHandi div.produktuaIrudia a img{
   .produktuakKat {
     grid-template-columns: repeat(2, 1fr);
   }
+  .sidebar {
+    width: 80%;
+  }
+
 
   /* Produktua */
   .produktuaHandi {
@@ -757,13 +757,14 @@ div.produktuaHandi div.produktuaIrudia a img{
   .produktubtn {
     width: 80%;
   }
-
-  /* Botones y textos */
-  input.botoiak, input.botoiak1 {
-    font-size: 16px;
-    padding: 10px;
-  }
-  h2, h3 {
-    font-size: 18px;
-  }
+}
+/* Botones y textos */
+input.botoiak,
+input.botoiak1 {
+  font-size: 16px;
+  padding: 10px;
+}
+h2,
+h3 {
+  font-size: 18px;
 }

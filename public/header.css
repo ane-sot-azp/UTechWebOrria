@@ -13,7 +13,9 @@ input[type="search"] {
 .active {
   background-color: var(--urdinIlunena);
 }
-
+/* .closebtnNav{
+  display: none;
+} */
 .navbar {
   display: grid;
   grid-template-areas:
@@ -23,6 +25,15 @@ input[type="search"] {
   overflow: hidden;
   background-color: white;
   height: 6em;
+}
+
+.openbtnNav {
+  display: none;
+  width: 10%;
+  background-color: white;
+  color: --urdinIlunena;
+  border: none;
+  font-size: 30px;
 }
 
 .navbar .right {
@@ -103,57 +114,85 @@ div#left {
   color: black;
 }
 
-@media screen and (max-width: 600px) {
-    .navbar {
-    background-color: lightblue;
+@media (max-width: 480px) {
+  /* Ajuste del navbar para pantallas pequeñas */
+  * {
+    text-align: center;
+  }
+  .openbtnNav {
+    display: block;
+  }
+  img.logo {
+    width: 50%;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .navbar a {
+    width: 100%;
+    padding: 10px;
+  }
+  .menua {
+    display: none;
+    grid-template-areas:
+      "bilatu"
+      "right"
+      "left";
+    align-items: left;
+  }
+  a.bilatu {
+    width: 100%;
+    grid-area: bilatu;
+  }
+  a.left {
+    text-align: left;
+    border-bottom: 1px solid var(--urdina);
+  }
+  #left {
+    grid-area: left;
+  }
+  div#right {
+    display: flex;
+    text-align: left;
+    grid-area: right;
+  }
+  .header,
+  .bilatu,
+  #left,
+  #right {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  input[type="search"] {
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .lehioa-contenido {
+    flex-direction: column;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .itxi {
+    font-size: 24px;
+    top: 5px;
+    right: 10px;
+  }
+
+  /* Ajuste de imágenes de idioma */
+  .hizkuntza > img {
+    width: 16px;
   }
 }
-
-@media (max-width: 480px) {
-    /* Ajuste del navbar para pantallas pequeñas */
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .navbar a {
-      font-size: 14px;
-      padding: 10px;
-    }
-  
-    .header, .bilatu, #left, #right {
-      width: 100%;
-      text-align: center;
-      margin: 5px 0;
-    }
-  
-    /* Ajuste de la caja de búsqueda */
-    input[type="search"] {
-      width: 100%;
-      height: 25px;
-      font-size: 14px;
-    }
-  
-    /* Ajuste del modal */
-    .lehioa-contenido {
-      flex-direction: column;
-      width: 90%;
-      padding: 20px;
-    }
-  
-    .itxi {
-      font-size: 24px;
-      top: 5px;
-      right: 10px;
-    }
-  
-    /* Ajuste de imágenes de idioma */
-    .hizkuntza > img {
-      width: 16px;
-    }
-  }
-  
-
