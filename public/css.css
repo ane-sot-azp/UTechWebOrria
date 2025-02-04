@@ -81,6 +81,10 @@ div.produktuak > h1 {
 
 .deskribapena {
   text-align: center;
+  border-top: 2px solid var(--urdinIlunena);
+  margin-top: 10px;
+  color: var(--urdinIlunena);
+  padding: 4px;
 }
 
 .imagen {
@@ -668,17 +672,35 @@ div.produktuaHandi div.produktuaIrudia a img {
     height: 150px;
   }
 
-  /* Albisteak (Noticias) */
+  /* Albisteak*/
   .albiste {
     grid-template-columns: 1fr;
-    gap: 5%;
+    grid-template-areas: "albiste1" "albiste2";
+    gap: 0;
     margin: 2%;
+  }
+  .albistea{
+    height: 40px;
+  }
+  .albistea p{
+    display: none;
+  }
+  .albisteak1 {
+    grid-area: albiste1;
+  }
+  .albisteak2 {
+    grid-area: albiste2;
   }
   .albisteak1,
   .albisteak2 {
     grid-template-columns: 1fr;
+    grid-template-areas:
+    "izenburua"
+    "laburpena"
+    "albisteIrudia";
     gap: 5%;
     margin: 2%;
+    border-bottom: 5px solid var(--urdinIlunena);
   }
 
   /* Login */
@@ -742,7 +764,6 @@ div.produktuaHandi div.produktuaIrudia a img {
   .sidebar {
     width: 80%;
   }
-
 
   /* Produktua */
   .produktuaHandi {

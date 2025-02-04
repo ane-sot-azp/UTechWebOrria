@@ -18,7 +18,8 @@
     }
     ?>
     <meta charset="utf-8">
-    <title>Utech | <?php echo $marka . ' ' . $modeloa ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>UTech | <?php echo $marka . ' ' . $modeloa ?></title>
     <link rel="icon" href="../public/irudiak/IKONOAK/favicon_dark.svg" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="../public/irudiak/IKONOAK/favicon_light.svg" media="(prefers-color-scheme: light)">
     <script src="https://kit.fontawesome.com/83f15f6aab.js" crossorigin="anonymous"></script>

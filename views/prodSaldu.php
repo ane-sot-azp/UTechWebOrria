@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AI Market | Zure produktuak saldu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>UTech | Zure produktuak saldu</title>
     <link rel="icon" href="irudiak/IKONOAK/favicon_dark.svg" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="irudiak/IKONOAK/favicon_light.svg" media="(prefers-color-scheme: light)">
     <script src="https://kit.fontawesome.com/83f15f6aab.js" crossorigin="anonymous"></script>

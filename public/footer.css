@@ -1,60 +1,65 @@
 /*Footerra*/
-@media (max-width: 480px) {
-*{
- 
- }
-    
-    }
-    
+
 footer {
-    position: static;
-   
-    width: 100%;
+  position: static;
+
+  width: 100%;
+}
+div.footerra {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-areas:
+    "logo helb"
+    "logo mail"
+    "logo tel";
+  height: auto;
+  background-color: white;
+  color: var(--urdinIlunena);
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 5px;
+}
+.footlogo {
+  grid-area: logo;
+}
+.footmail {
+  grid-area: mail;
+}
+.foottel {
+  grid-area: tel;
+}
+.foothelb {
+  grid-area: helb;
+}
+.footrights {
+  grid-area: rights;
+}
+div.footerra > div {
+  padding: 10px;
+}
+.footleft {
+  text-align: left;
+}
+div.footrights {
+  height: auto;
+  bottom: 0;
+  background-color: white;
+  color: var(--urdinIlunena);
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+@media (max-width: 480px) {
+  * {
+    text-align: center;
   }
   div.footerra {
-    display: grid;
-    grid-template-columns: 48% 48%;
-    grid-template-areas:
-      "logo helb"
-      "logo mail"
-      "logo tel";
-    height: auto;
-    background-color: white;
-    color: var(--urdinIlunena);
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    padding: 20px;
-    padding-bottom: 5px;
   }
-  .footlogo {
-    grid-area: logo;
-  }
-  .footmail {
-    grid-area: mail;
-  }
-  .foottel {
-    grid-area: tel;
-  }
-  .foothelb {
-    grid-area: helb;
-  }
-  .footrights {
-    grid-area: rights;
-  }
-  div.footerra > div {
-    padding: 10px;
-  }
-  .footleft {
-    text-align: left;
-  }
-  div.footrights {
-    height: auto;
-    bottom: 0;
-    background-color: white;
-    color: var(--urdinIlunena);
+  div.footer div {
     text-align: center;
-    padding: 20px;
-    padding-bottom: 5px;
-    font-size: 18px;
-    font-weight: bold;
   }
-  
+}
