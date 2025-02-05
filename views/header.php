@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="icon" href="../public/irudiak/IKONOAK/favicon_dark.svg" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="../public/irudiak/IKONOAK/favicon_light.svg" media="(prefers-color-scheme: light)">
@@ -14,7 +14,6 @@
 
 <body>
     <header>
-
         <div class="sticky">
             <div class="navbar">
                 <div class="header">
@@ -29,7 +28,6 @@
                                 <input type="search" name="query" placeholder="Bilatu...">
                             </form>
                         </a>
-
                     </div>
                     <div id="left">
                         <a class="left" href="hasiera.php">Hasiera</a>
@@ -53,10 +51,8 @@
                 <h3>Saskia hutsik dago</h3>
             </div>
         </div>
-
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
         <script>
             function menuaIreki() {
                 var win = $(window).width();
@@ -64,10 +60,10 @@
                     if ($(".menua").css('display') == "grid") {
                         $(".menua").css('display', "none");
                     } else {
-                    $(".menua").css('display', "grid");
+                        $(".menua").css('display', "grid");
+                    }
                 }
             }
-        }
             $(document).ready(function () {
                 $(".bidali").on("click", function (e) {
                     e.preventDefault();

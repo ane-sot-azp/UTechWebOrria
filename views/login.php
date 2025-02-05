@@ -14,7 +14,7 @@
 <body>
     <div class="login" id="login">
         <div id="saioHasiera">
-        <img src="../public/irudiak/IKONOAK/LOGO.svg" width="40%"/><br><br><br><br><br><br>
+        <a href="hasiera.php"><img src="../public/irudiak/IKONOAK/LOGO.svg" width="40%"/><br><br><br><br><br><br></a>
             <h3 class="">Saioa Hasi</h3><br><br>            
             <form method="POST" action="">
                 <label for="erabiltzailea">Erabiltzailea:<span class="required"><span class="required">*</span></span></label><br>
@@ -25,8 +25,8 @@
             </form>
         </div>
         <div id="erregistroa">
-            <h3 class="">Berria zara? Egin bezero!</h3><br><br>
-            <form method="POST" action="">
+           <h3 class=""> <!-- <a href="#miDiv"> -->Berria zara? Egin bezero!<!-- </a> --></h3><br><br>
+            <form id="miDiv" method="POST" action="">
                 <label for="izena">Izena:<span class="required"><span class="required">*</span></span></label><br>
                 <input class="" type="text" id="izena" name="izena" required><br><br>
                 <label for="abizena">Abizena:<span class="required"><span class="required">*</span></span></label><br>

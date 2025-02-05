@@ -14,26 +14,7 @@
 
 <body>
     <?php include 'header.php'; ?>
-    <div id="saioHasiera" class="lehioa">
-        <div class="lehioa-contenido">
-            <a href="#" class="itxi">&times;</a>
-            <h2 class="lehioa">Saioa Hasi</h2>
-            <form>
-                <label for="erabiltzailea">Erabiltzailea:</label>
-                <input class="sesioHasiera" type="text" id="erabiltzailea" name="erabiltzailea" required><br><br>
-                <label for="pasahitza">Pasahitza:</label>
-                <input class="sesioHasiera" type="password" id="pasahitza" name="pasahitza" required><br><br>
-                <button type="submit">Saioa Hasi</button>
-            </form>
-        </div>
-    </div>
-    <div id="saskia" class="lehioa">
-        <div class="lehioa-contenido">
-            <a href="#" class="itxi">&times;</a>
-            <h2 class="lehioa">Saskia</h2>
-            <h3>Saskia hutsik dago</h3>
-        </div>
-    </div>
+
     <div class="norGara">
         <div class="hisIrudia">
             <img class="norGaraIrudiak" src="../public/irudiak/NOR GARA/LOKALA.png">
