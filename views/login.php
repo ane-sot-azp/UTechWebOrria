@@ -1,5 +1,6 @@
 <?php
-session_start(); ?>
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -88,8 +89,9 @@ session_start(); ?>
             })
                 .done(function (informazioa) {
                     if (informazioa == 'ongi') {
-                        alert("Ongi etorri!");
-                        window.location.href = "hasiera.php";
+                        var usuario = <?php echo $_SESSION["izena"]; ?>
+                        alert("Ongi etorri "+usuario+"!");
+                        //window.location.href = "hasiera.php";
                     } else if (informazioa == 'error') {
                         alert("Erabiltzailea edo pasahitza desegokiak dira");
                         $('#erabiltzailea').val("");

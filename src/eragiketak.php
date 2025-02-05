@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("../src/db.php");
 
 if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
@@ -15,7 +15,11 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            $_SESSION['username'] = $erabiltzailea;
+            while($row=$result->fetch_assoc()){
+                $_SESSION["username"] = $erabiltzailea;
+                $_SESSION["izena"] = $row["izena"];
+                $_SESSION["id"] = $row["idBezeroa"];
+            }
             $conn->close();
             echo "ongi";
             die;

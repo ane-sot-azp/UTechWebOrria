@@ -2,7 +2,7 @@
 return [
     //HEADER
     "bilatu..."=> "Bilatu",
-    "index"=> "Hasiera",
+    "index"=> "Home page",
     "about"=> "Nor gara",
     "catalogue"=> "Katalogoa",
     "contact"=> "Kontaktua",
@@ -10,7 +10,7 @@ return [
     "emptyCart"=> "Saskia hutsik dago",
 
     // HASIERA
-    "deskontuIrudia"=> "../public/irudiak\DESKONTUAK\Deskontuak.png",
+    "deskontuIrudia"=> "../public/irudiak\DESKONTUAK\Discounts-01.png",
     "azProd" => "Azken produktuak",
     "noResult" => "Ez da produkturik aurkitu",
     "albTitul" => "Albisteak",
@@ -123,3 +123,5 @@ return [
     "frek"=> "Frekuentzia",
     "erresol"=> "Erresoluzioa",
 ];
+
+// <?= trans("azProd") ?>

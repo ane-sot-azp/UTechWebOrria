@@ -57,7 +57,6 @@ if (isset($_POST['selectedLang'])) {
                         }
 
                         ?>
-                        <a class="right" href="login.php"><i class="fa-solid fa-user"></i></a>
                         <div class="hizkuntza right">
                             <?php
                             $currentLang = isset($_SESSION['_LANGUAGE']) ? $_SESSION['_LANGUAGE'] : 'en';
