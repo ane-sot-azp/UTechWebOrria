@@ -25,7 +25,7 @@
         </div>
         <div class="infoForm">
             <h2 id="formularioa"><?= trans("kontakt") ?></h2><br>
-            <form>
+            <form method="POST" action="">
                 <label for="name"><?= trans("izena") ?>Izena</label><span class="required">*</span><br>
                 <input class="kont" type="text" id="name" required><br>
                 <label for="surname"><?= trans("abizena") ?>Abizena</label><br>
@@ -36,7 +36,7 @@
                 <input class="kont" type="tel" id="tel" placeholder="123 45 67 89"><br>
                 <label for="longtext"><?= trans("subject") ?>Gaia</label><span class="required">*</span><br>
                 <textarea class="kont" id="longtext" placeholder="<?= trans("message") ?>" required></textarea>
-                <input class="botoiak" type="submit" value="<?= trans("send") ?>Bidali"><input class="botoiak" type="reset" value="<?= trans("erase") ?>Ezabatu">
+                <input class="botoiak" type="submit" value="<?= trans("send") ?>"><input class="botoiak" type="reset" value="<?= trans("erase") ?>">
             </form>
         </div>
         <div class="hornitzailea">
@@ -44,20 +44,20 @@
             <br>
             <form method="POST" action="">
                 <label for="izena"><?= trans("izena") ?>:</label><span class="required">*</span><br>
-                <input type="text" name="izena" id="izena" required/><br>
+                <input class="kont" type="text" name="izena" id="izena" required/><br>
                 <label for="nif"><?= trans("nif") ?>:</label><span class="required">*</span><br>
-                <input type="text" name="nif" id="nif" required/><br>
+                <input class="kont" type="text" name="nif" id="nif" required/><br>
                 <label for="postaElektronikoa"><?= trans("email") ?>:</label><span class="required">*</span><br>
-                <input type="email" name="postaElektronikoa" id="postaElektronikoa"
+                <input class="kont" type="email" name="postaElektronikoa" id="postaElektronikoa"
                     placeholder="<?= trans("emailPH") ?>" required/><br>
                 <label for="telefonoZenbakia"><?= trans("tel") ?>:</label><br>
-                <input type="tel" name="telefonoZenbakia" id="telefonoZenbakia" /><br>
+                <input class="kont" type="tel" name="telefonoZenbakia" id="telefonoZenbakia" /><br>
                 <label for="helbidea"><?= trans("helbide") ?>:</label><span class="required">*</span><br>
-                <input type="text" name="helbidea" id="helbidea" required/><br>
+                <input class="kont" type="text" name="helbidea" id="helbidea" required/><br>
                 <label for="herria"><?= trans("herria") ?>:</label><span class="required">*</span><br>
-                <input type="text" name="herria" id="herria" required/><br>
+                <input class="kont" type="text" name="herria" id="herria" required/><br>
                 <label for="postaKodea"><?= trans("PK") ?>:</label><span class="required">*</span><br>
-                <input type="text" name="postaKodea" id="postaKodea" required/><br>
+                <input class="kont" type="text" name="postaKodea" id="postaKodea" required/><br>
                 <input type="submit" class="botoiak1" value="<?= trans("send") ?>">
             </form>
         </div>

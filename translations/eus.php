@@ -122,6 +122,16 @@ return [
     "kolorea"=> "Kolorea",
     "frek"=> "Frekuentzia",
     "erresol"=> "Erresoluzioa",
+    //ERABILTZAILEA
+    "newProduktua"=> "Funtzionatzen ez duen gailu bat duzu? Bidali zure informazioa!",
+    "ezaugarriak"=> "Ezaugarriak",
+    "ezaugarriakMezua"=> "Idatzi gailuaren ezaugarriak...",
+    "ondo"=> "Ona",
+    "gaizki"=> "Txarra",
+    "egoera"=> "Egoera",
+    "sekz1"=> "Gailuak berrerabili",
+    "sekz2"=> "Zure erosketak",
+    "sekz3"=> "Datuak eguneratu",
 ];
 
 // <?= trans("azProd") ?>

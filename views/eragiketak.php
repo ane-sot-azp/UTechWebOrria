@@ -22,6 +22,8 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
                 $_SESSION["username"] = $erabiltzailea;
                 $_SESSION["izena"] = $row["izena"];
                 $_SESSION["id"] = $row["idBezeroa"];
+                $_SESSION["abizena"] = $row["abizena"];
+                $_SESSION["nanEdoNif"] = $row["nanEdoNif"];
             }
             $conn->close();
             echo "ongi";
