@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTech | Nor gara</title>
     <link rel="icon" href="../public/irudiak/IKONOAK/favicon_dark.svg" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="../public/irudiak/IKONOAK/favicon_light.svg" media="(prefers-color-scheme: light)">
@@ -20,49 +20,34 @@
             <img class="norGaraIrudiak" src="../public/irudiak/NOR GARA/LOKALA.png">
         </div>
         <div class="historiaIzenb">
-            <h2 class="historia">Historia</h2>
+            <h2 class="historia"><?= trans("historia") ?></h2>
         </div>
         <div class="historia">
             <p class="historia">
-                2022an, Beñat Martin-ek eta Ane Sotok, Utopia Tech sortu zuten, helburu argi batekin: erabilitako
-                mugikorrei bigarren bizitza bat ematea
-                eta gailu elektronikoen ingurumen-inpaktua murriztea.</p>
+                <?= trans("historia1") ?>
+            </p>
             <p class="historia">
-
-                Bi lagunek ikusten zuten urtero milioika telefono baztertu egiten zituztela, nahiz eta asko konpondu eta
-                berrerabili ahal izan.
-                Ideia hori gogoan, Utopia Tech sortu zuten, bigarren eskuko edo egokitutako mugikorrak erosi, konpondu eta
-                prezio eskuragarrietan saltzen
-                dituen enpresa.</p>
+                <?= trans("historia2") ?>
+            </p>
             <p class="historia">
-                Beñat, hardwarean adituak, berak hardwarearen eta softwarearen inguruan zuen jakinminarekin, gailuen
-                arazoak azkar diagnostikatzeko eta
-                horien konponketa optimizatzeko gai izan zen. Ane, iraunkortasunean esperientziaduna, ekonomia
-                zirkularrean oinarritutako negozio-eredu bat
-                sortzeaz arduratu zen.</p>
+                <?= trans("historia3") ?>
+            </p>
             <p class="historia">
-                Gaur egun, Utopia Tech-ek mugikorrak prezio merkeagoan eskaintzeaz gain, hondakin elektronikoak murrizten
-                laguntzen du eta kontsumo arduratsuagoa
-                sustatzen du. Saldutako mugikor bakoitza etorkizun iraunkorrago baterako urratsa da.<br>
-
+                <?= trans("historia4") ?><br>
             </p>
         </div>
         <div class="helIrudia">
             <img class="norGaraIrudiak" src="../public/irudiak/NOR GARA/HELBURUAK.png" width="80%">
         </div>
         <div class="helburuakIzenb">
-            <h2 class="helburuak">Helburuak</h2>
+            <h2 class="helburuak"><?= trans("helburuak") ?></h2>
         </div>
         <div class="helburuak">
             <p class="helburuak">
-                Utopia Tech-en, gure asmoa argia da: teknologiaren ingurumen-inpaktua murriztea, erabilitako mugikorrei
-                bizitza berri bat ematean. Kontsumo arduratsuagoa eta eskuragarriagoa sustatzeko gailu egokituak
-                erosten, konpontzen eta saltzen ditugu. </p>
+                <?= trans("helburuak1") ?>
+            </p>
             <p class="helburuak">
-                Ekonomia zirkularrean sinesten dugu, non produktuak hondakin
-                elektronikoetan amaitu beharrean berrerabil daitezkeen. Gainera, teknologia guztiontzat eskuragarriagoa
-                izan dadin lan egiten dugu, egoera bikainean dauden mugikorrak prezio justuetan eskainiz, etorkizun
-                iraunkorrago bati laguntzen diogun bitartean.
+                <?= trans("helburuak2") ?>
             </p>
         </div>
     </div>

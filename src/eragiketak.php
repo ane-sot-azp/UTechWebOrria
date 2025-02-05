@@ -15,6 +15,7 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
+            $_SESSION['username'] = $erabiltzailea;
             $conn->close();
             echo "ongi";
             die;

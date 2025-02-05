@@ -1,5 +1,14 @@
+<?php
+session_start();
+
+if (isset($_POST['selectedLang'])) {
+    $_SESSION['_LANGUAGE'] = $_POST['selectedLang'];
+}
+
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="eus">
 
 <head>
     <meta charset="utf-8">
@@ -14,6 +23,9 @@
 
 <body>
     <header>
+        <?php
+        require_once("../src/translations.php"); //APP_DIR erabilita itzulpenen dokumentua atzitu dugu.
+        ?>
         <div class="sticky">
             <div class="navbar">
                 <div class="header">
@@ -25,21 +37,54 @@
                     <div class="bilatu">
                         <a class="bilatu">
                             <form action="buscar.php" method="GET">
-                                <input type="search" name="query" placeholder="Bilatu...">
+                                <input type="search" name="query" placeholder="<?= trans("bilatu...") ?>...">
                             </form>
                         </a>
                     </div>
                     <div id="left">
-                        <a class="left" href="hasiera.php">Hasiera</a>
-                        <a class="left" href="norGara.php">Nor gara</a>
-                        <a class="left" href="katalogoa.php">Katalogoa</a>
-                        <a class="left" href="kontaktua.php">Kontaktua</a>
+                        <a class="left" href="hasiera.php"><?= trans("index") ?></a>
+                        <a class="left" href="norGara.php"><?= trans("about") ?></a>
+                        <a class="left" href="katalogoa.php"><?= trans("catalogue") ?></a>
+                        <a class="left" href="kontaktua.php"><?= trans("contact") ?></a>
                     </div>
                     <div id="right">
                         <a class="right" href="#saskia"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <?php
+                        if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
+                            echo '<a class="right" href="erabiltzailea.php"><i class="fa-solid fa-user"></i></a>';
+                        } else if(isset($_SESSION["username"]) AND $_SESSION["username"] == "") {
+                            echo '<a class="right" href="login.php"><i class="fa-solid fa-user"></i></a>';
+                        }
+
+                        ?>
                         <a class="right" href="login.php"><i class="fa-solid fa-user"></i></a>
-                        <a class="hizkuntza hiz right" href="hasiera_EN.php"><img
-                                src="../public/irudiak/IKONOAK/uk.png"></a>
+                        <div class="hizkuntza right">
+                            <?php
+                            $currentLang = isset($_SESSION['_LANGUAGE']) ? $_SESSION['_LANGUAGE'] : 'en';
+
+                            // Muestra la bandera opuesta
+                            if ($currentLang == 'en') {
+                                echo '<form method="post">
+                            <input type="hidden" name="selectedLang" value="eus">
+                            <button class="right" type="submit" style="border:none; background:none;">
+                                <img src="../public/irudiak/IKONOAK/ikurriña.png" alt="Euskara" style="width:20px;">
+                            </button>
+                            </form>';
+                            } else {
+                                echo '<form method="post">
+                            <input type="hidden" name="selectedLang" value="en">
+                            <button class="right" type="submit" style="border:none; background:none;">
+                                <img src="../public/irudiak/IKONOAK/uk.png" alt="Ingelesa" style="width:20px;">
+                            </button>
+                        </form>';
+                            }
+                            ?>
+
+
+                        </div>
+
+                        <!-- <a class="hizkuntza hiz right" href="hasiera_EN.php"><img
+                                src="../public/irudiak/IKONOAK/uk.png"></a> -->
                     </div>
                 </div>
             </div>
@@ -47,8 +92,8 @@
         <div id="saskia" class="lehioa">
             <div class="lehioa-contenido">
                 <a href="#" class="itxi">&times;</a>
-                <h2 class="lehioa">Saskia</h2>
-                <h3>Saskia hutsik dago</h3>
+                <h2 class="lehioa"><?= trans("cart") ?></h2>
+                <h3><?= trans("emptyCart") ?></h3>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.7.1.js"

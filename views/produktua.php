@@ -41,7 +41,7 @@
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="produktuaIrudia" id="produktuairudia' . $row['idProduktua'] . '" data-alternate-image="../public/irudiak/PRODUKTUAK/' . $row['irudia2'] . '">';
                 echo '<a href="produktua.php?produktuid=' . $row['idProduktua'] . '" class="prodaIrudiak">';
-                echo '<img width="40%" id="argazkia" src="../public/irudiak/PRODUKTUAK/' . $row['irudia1'] . '" alt="Irudia ' . $row['idProduktua'] . '">';
+                echo '<img id="argazkia1" src="../public/irudiak/PRODUKTUAK/' . $row['irudia1'] . '" alt="Irudia ' . $row['idProduktua'] . '">';
                 echo '</a>';
                 echo '</div>';
                 echo '<div class="produktuaInfo" id="produktuainfo' . $row['idProduktua'] . '">';
@@ -51,30 +51,30 @@
 
                 switch ($row['ProduktuMota_idProduktuMota']) {
                     case 1:
-                        echo '<p><b>Memoria:</b> ' . $row['memoria'] . '</p><br>';
-                        echo '<p><b>RAM:</b> ' . $row['ram'] . '</p><br>';
-                        echo '<p><b>Prozesagailua:</b> ' . $row['prozesagailua'] . '</p><br>';
-                        echo '<p><b>Tamaina:</b> ' . $row['tamaina'] . ' pulgada</p><br>';
-                        echo '<p><b>Sistema Eragilea:</b> ' . $row['sistemaEragilea'] . '</p><br>';
+                        echo '<p><b>'.trans("memoria").':</b> ' . $row['memoria'] . '</p><br>';
+                        echo '<p><b>'.trans("ram").':</b> ' . $row['ram'] . '</p><br>';
+                        echo '<p><b>'.trans("prozes").':</b> ' . $row['prozesagailua'] . '</p><br>';
+                        echo '<p><b>'.trans("size").':</b> ' . $row['tamaina'] . '</p><br>';
+                        echo '<p><b>'.trans("sErag").':</b> ' . $row['sistemaEragilea'] . '</p><br>';
                         break;
                     case 2:
-                        echo '<p><b>Memoria:</b> ' . $row['memoria'] . '</p><br>';
-                        echo '<p><b>RAM:</b> ' . $row['ram'] . '</p><br>';
-                        echo '<p><b>Prozesagailua:</b> ' . $row['prozesagailua'] . '</p><br>';
-                        echo '<p><b>Tamaina:</b> ' . $row['tamaina'] . ' pulgada</p><br>';
-                        echo '<p><b>Sistema Eragilea:</b> ' . $row['sistemaEragilea'] . '</p><br>';
-                        echo '<p><b>Kamara:</b> ' . $row['kamara'] . '</p><br>';
-                        echo '<p><b>Kolorea:</b> ' . $row['kolorea'] . '</p><br>';
+                        echo '<p><b>'.trans("memoria").':</b> ' . $row['memoria'] . '</p><br>';
+                        echo '<p><b>'.trans("ram").':</b> ' . $row['ram'] . '</p><br>';
+                        echo '<p><b>'.trans("prozes").':</b> ' . $row['prozesagailua'] . '</p><br>';
+                        echo '<p><b>'.trans("size").':</b> ' . $row['tamaina'] . ' pulgada</p><br>';
+                        echo '<p><b>'.trans("sErag").':</b> ' . $row['sistemaEragilea'] . '</p><br>';
+                        echo '<p><b>'.trans("kamara").':</b> ' . $row['kamara'] . '</p><br>';
+                        echo '<p><b>'.trans("kolorea").':</b> ' . $row['kolorea'] . '</p><br>';
                         break;
                     case 3:
-                        echo '<p><b>Tamaina:</b> ' . $row['tamaina'] . ' pulgada</p><br>';
-                        echo '<p><b>Erresoluzioa:</b> ' . $row['erresoluzioa'] . '</p><br>';
-                        echo '<p><b>Frekuentzia:</b> ' . $row['frekuentzia'] . '</p><br>';
+                        echo '<p><b>'.trans("size").':</b> ' . $row['tamaina'] . ' pulgada</p><br>';
+                        echo '<p><b>'.trans("erresol").':</b> ' . $row['erresoluzioa'] . '</p><br>';
+                        echo '<p><b>'.trans("frek").':</b> ' . $row['frekuentzia'] . '</p><br>';
                         break;
                     case 4:
-                        echo '<p><b>Prozesagailua:</b> ' . $row['prozesagailua'] . '</p><br>';
-                        echo '<p><b>Tamaina:</b> ' . $row['tamaina'] . ' pulgada</p><br>';
-                        echo '<p><b>Kolorea:</b> ' . $row['kolorea'] . '</p><br>';
+                        echo '<p><b>'.trans("prozes").':</b> ' . $row['prozesagailua'] . '</p><br>';
+                        echo '<p><b>'.trans("size").':</b> ' . $row['tamaina'] . ' pulgada</p><br>';
+                        echo '<p><b>'.trans("kolorea").':</b> ' . $row['kolorea'] . '</p><br>';
                         break;
                     default:
                         break;
@@ -82,7 +82,7 @@
                 echo '</div>';
             }
         } else {
-            echo "Ez da produkturik aurkitu";
+            echo trans("noResult");
         }
 
         $conn->close();
@@ -107,7 +107,8 @@
             });
         });
     </script>
-
+<?php include 'footer.php';
+    ?>
 </body>
 
 </html>
