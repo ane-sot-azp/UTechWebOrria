@@ -47,6 +47,15 @@ input[type="search"] {
   padding: 14px 16px;
   text-decoration: none;
 }
+.navbar a.right{
+  padding: 0px;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+.navbar a.right i{
+  font-size: 25px;
+  line-height: 40px;
+}
 .header {
   grid-area: logo;
   margin: auto;
@@ -70,6 +79,18 @@ div#left {
 .hizkuntza > img {
   width: 20px;
   vertical-align: middle;
+}
+a.right div.erabiltzailea{
+  background-color: var(--urdina);
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 100%;
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
 }
 /* div .active {
     background-color: var(--urdinIlunena);
@@ -137,8 +158,12 @@ div#left {
     margin-bottom: 10px;
   }
   .navbar a {
-    width: 100%;
-    padding: 10px;
+    width: 80%;
+    /* padding: 10px; */
+  }
+  .navbar a.right{
+    padding: 3px;
+    margin-right: 0;
   }
   .menua {
     display: none;
@@ -161,8 +186,9 @@ div#left {
   }
   div#right {
     display: flex;
-    text-align: left;
+    text-align: center;
     grid-area: right;
+    margin-left: 10px;
   }
   .header,
   .bilatu,
@@ -170,7 +196,11 @@ div#left {
   #right {
     width: 100%;
     text-align: center;
-    margin: 5px 0;
+    margin: 0;
+  }
+  .bilatu{
+    margin: 0;
+    width: 90%;
   }
 
   input[type="search"] {
@@ -183,6 +213,11 @@ div#left {
     flex-direction: column;
     width: 90%;
     padding: 20px;
+  }
+  .right{
+    width: auto;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   .itxi {

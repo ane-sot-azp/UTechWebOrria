@@ -52,15 +52,16 @@ if (isset($_POST['selectedLang'])) {
                         <a class="left" href="kontaktua.php"><?= trans("contact") ?></a>
                     </div>
                     <div id="right">
-                        <a class="right" href="#saskia"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <div class="right"><a class="right" href="#saskia"><i class="fa-solid fa-cart-shopping"></i></a></div>
+                        <div class="right">
                         <?php
                         if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
-                            echo '<a class="right" href="erabiltzailea.php"><div>'.$first_letter.'</div></a>';
+                            echo '<a class="right" href="erabiltzailea.php"><div class="erabiltzailea">'.$first_letter.'</div></a>';
                         } else if(!isset($_SESSION["username"])) {
                             echo '<a class="right" href="login.php"><i class="fa-solid fa-user"></i></a>';
                         }
-
                         ?>
+                        </div>
                         <div class="hizkuntza right">
                             <?php
                             $currentLang = isset($_SESSION['_LANGUAGE']) ? $_SESSION['_LANGUAGE'] : 'en';
@@ -70,14 +71,14 @@ if (isset($_POST['selectedLang'])) {
                                 echo '<form method="post">
                             <input type="hidden" name="selectedLang" value="eus">
                             <button class="right" type="submit" style="border:none; background:none;">
-                                <img src="../public/irudiak/IKONOAK/ikurriña.png" alt="Euskara" style="width:20px;">
+                                <img src="../public/irudiak/IKONOAK/ikurriña.png" alt="Euskara" style="width:40px;">
                             </button>
                             </form>';
                             } else {
                                 echo '<form method="post">
                             <input type="hidden" name="selectedLang" value="en">
                             <button class="right" type="submit" style="border:none; background:none;">
-                                <img src="../public/irudiak/IKONOAK/uk.png" alt="Ingelesa" style="width:20px;">
+                                <img src="../public/irudiak/IKONOAK/uk.png" alt="Ingelesa" style="width:40px;">
                             </button>
                         </form>';
                             }
