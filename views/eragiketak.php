@@ -4,6 +4,9 @@ require_once("../src/db.php");
 
 if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
     $conn = konexioaEgin();
+    if(!$conn){
+        echo "dberror";
+    }
     $erabiltzailea = $conn->real_escape_string($_POST["erabiltzailea"]);
     $pasahitza = $conn->real_escape_string($_POST["pasahitza"]);
     if ($pasahitza === '' or $erabiltzailea === '') {

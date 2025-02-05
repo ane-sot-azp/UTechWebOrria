@@ -1,9 +1,13 @@
 <?php
-session_start();
-
+// session_start();
+require_once("eragiketak.php");
+if(isset($_SESSION['izena'])){
+    $first_letter = substr($_SESSION['izena'], 0, 1);
+}
 if (isset($_POST['selectedLang'])) {
     $_SESSION['_LANGUAGE'] = $_POST['selectedLang'];
 }
+
 
 ?>
 
@@ -51,8 +55,8 @@ if (isset($_POST['selectedLang'])) {
                         <a class="right" href="#saskia"><i class="fa-solid fa-cart-shopping"></i></a>
                         <?php
                         if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
-                            echo '<a class="right" href="erabiltzailea.php"><i class="fa-solid fa-user"></i></a>';
-                        } else if(isset($_SESSION["username"]) AND $_SESSION["username"] == "") {
+                            echo '<a class="right" href="erabiltzailea.php"><div>'.$first_letter.'</div></a>';
+                        } else if(!isset($_SESSION["username"])) {
                             echo '<a class="right" href="login.php"><i class="fa-solid fa-user"></i></a>';
                         }
 
@@ -107,43 +111,6 @@ if (isset($_POST['selectedLang'])) {
                         $(".menua").css('display', "grid");
                     }
                 }
-            }
-            $(document).ready(function () {
-                $(".bidali").on("click", function (e) {
-                    e.preventDefault();
-                    loginaEgin();
-                })
-
-            })
-
-            function loginaEgin() {
-                var erabiltzailea = $('#erabiltzailea').val();
-                var pasahitza = $('#pasahitza').val();
-                $.ajax({
-                    url: "eragiketak.php",
-                    method: "POST",
-                    data: {
-                        akzioa: "loginaEgin",
-                        erabiltzailea: erabiltzailea,
-                        pasahitza: pasahitza
-                    }
-                })
-                    .done(function (informazioa) {
-                        if (informazioa == 'ongi') {
-                            alert("Ongi etorri!")
-                        } else if (informazioa == 'error') {
-                            alert("Erabiltzailea edo pasahitza desegokiak dira");
-                            $('#erabiltzailea').val("");
-                            $('#pasahitza').val("");
-                        }
-                    })
-                    .fail(function () {
-                        alert("Zerbaitek ez du funtzionatu")
-                    })
-                    .always(function () {
-
-                    })
-
             }
         </script>
 

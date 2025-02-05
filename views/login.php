@@ -79,7 +79,7 @@ session_start();
             var erabiltzailea = $('#erabiltzailea').val();
             var pasahitza = $('#pasahitza').val();
             $.ajax({
-                url: "../src/eragiketak.php",
+                url: "eragiketak.php",
                 method: "POST",
                 data: {
                     akzioa: "loginaEgin",
@@ -89,15 +89,15 @@ session_start();
             })
                 .done(function (informazioa) {
                     if (informazioa == 'ongi') {
-                        var usuario = <?php echo $_SESSION["izena"]; ?>
-                        alert("Ongi etorri "+usuario+"!");
-                        //window.location.href = "hasiera.php";
+                        window.location.href = "hasiera.php";
                     } else if (informazioa == 'error') {
                         alert("Erabiltzailea edo pasahitza desegokiak dira");
                         $('#erabiltzailea').val("");
                         $('#pasahitza').val("");
                     } else if (informazioa == 'falta') {
                         alert("Erabiltzaile edo/eta pasahitza hutsik daude.")
+                    } else if (informazioa == 'dberror') {
+                        alert("dberror")
                     }
                 })
                 .fail(function () {
@@ -120,7 +120,7 @@ session_start();
             var pasahitza2 = $('#pasahitza2').val();
 
             $.ajax({
-                url: "../src/eragiketak.php",
+                url: "eragiketak.php",
                 method: "POST",
                 data: {
                     akzioa: "erregistroaEgin",
