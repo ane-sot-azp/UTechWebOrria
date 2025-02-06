@@ -178,16 +178,16 @@
                     })
                         .done(function (informazioa) {
                             if (informazioa == 'ongi') {
-                                alert("Produktua saskira sartu da");
+                                alert(<?= trans("saskiratu") ?>);
                                 location.reload();
                             } else if (informazioa == 'error') {
-                                alert("Zerbait gaizki atera da...");
+                                alert("Error...");
                             } else if (informazioa == 'dberror') {
                                 alert("dberror")
                             }
                         })
                         .fail(function () {
-                            alert("Zerbaitek ez du funtzionatu")
+                            alert("Error...")
                         })
                         .always(function () {
 

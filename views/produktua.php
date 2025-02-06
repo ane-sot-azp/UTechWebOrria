@@ -100,16 +100,16 @@
                     })
                         .done(function (informazioa) {
                             if (informazioa == 'ongi') {
-                                alert("Produktua saskira sartu da");
+                                alert(<?= trans("saskiratu") ?>);
                                 //window.location.href = "hasiera.php";
                             } else if (informazioa == 'error') {
-                                alert("Zerbait gaizki atera da...");
+                                alert("Error...");
                             } else if (informazioa == 'dberror') {
                                 alert("dberror")
                             }
                         })
                         .fail(function () {
-                            alert("Zerbaitek ez du funtzionatu")
+                            alert("Error...")
                         })
                         .always(function () {
 
@@ -119,16 +119,9 @@
         $(function () {
             
             $(".produktuaIrudia").hover(function (e) {
-                // Store original src for hover off
                 const originalSrc = $(this).find("img").attr("src");
-
-                // Get the alternate image path from data attribute
                 const alternateImage = $(this).data("alternate-image");
-
-                // Change the image source
                 $(this).find("img").attr("src", alternateImage);
-
-                // Bind hover off event
                 $(this).one("mouseleave", function () {
                     $(this).find("img").attr("src", originalSrc);
                 });

@@ -117,7 +117,7 @@ if (isset($_POST['selectedLang'])) {
 
                 if (!empty($orders)) {
                     echo '<div id="eskaera' . $orders[0]["idSaskia"] . '" class="eskaera"> ';
-                    echo '<table width="100%">';
+                    echo '<table>';
                     echo '<thead>';
                     echo '<th></th>';
                     echo '<th>Marka</th>';
@@ -133,7 +133,7 @@ if (isset($_POST['selectedLang'])) {
                         if ($result1->num_rows > 0) {
                             $product = $result1->fetch_assoc();
                             echo '<tr>';
-                            echo '<td><a href="produktua.php?produktuid=' . $order["Produktua_idProduktua"] . '"><img src="../public/irudiak/PRODUKTUAK' . $product["irudia1"] . '" alt="produktua" width="100px" height="100px"></a></td>';
+                            echo '<td><a href="produktua.php?produktuid=' . $order["Produktua_idProduktua"] . '"><img src="../public/irudiak/PRODUKTUAK' . $product["irudia1"] . '" alt="produktua"></a></td>';
                             echo '<td>' . $product["marka"] . '</td>';
                             echo '<td>' . $product["modeloa"] . '</td>';
                             echo '<td>' . $order["kopurua"] . '</td>';
@@ -146,10 +146,10 @@ if (isset($_POST['selectedLang'])) {
                     echo '<button class="erabBtn" onclick="erosi()" type="button">Erosi!</button>';
                     echo '</div>';
                 } else {
-                    echo '<h5>trans("emptyCart")</h5>';
+                    echo '<h5>'.trans("emptyCart").'</h5>';
                 }
                 }else{
-                    echo '<h5>trans("noUser")</h5>';}
+                    echo '<h5>'.trans("noUser").'</h5>';}
                  ?>
             </div>
         </div>
@@ -167,10 +167,10 @@ if (isset($_POST['selectedLang'])) {
                     .done(function (informazioa) {
                         console.log("Response: " + informazioa);
                         if (informazioa == 'ongi') {
-                            alert("Mila esker erosketagatik");
+                            alert(echo trans("eroskAlert"));
                             location.reload();
                         } else if (informazioa == 'error') {
-                            alert("Zerbait gaizki atera da...");
+                            alert("Error...");
                         } else if (informazioa == 'dberror') {
                             alert("dberror")
                         } else {
@@ -179,7 +179,7 @@ if (isset($_POST['selectedLang'])) {
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
                         console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
-                        alert("Zerbaitek ez du funtzionatu")
+                        alert("Error...")
                     })
                     .always(function () {
 
@@ -196,16 +196,16 @@ if (isset($_POST['selectedLang'])) {
                 })
                     .done(function (informazioa) {
                         if (informazioa == 'ongi') {
-                            alert("Produktua saskitik atera da");
+                            alert(echo trans("saskAtera"));
                             location.reload();
                         } else if (informazioa == 'error') {
-                            alert("Zerbait gaizki atera da...");
+                            alert("Error...");
                         } else if (informazioa == 'dberror') {
                             alert("dberror")
                         }
                     })
                     .fail(function () {
-                        alert("Zerbaitek ez du funtzionatu")
+                        alert("Error")
                     })
                     .always(function () {
 

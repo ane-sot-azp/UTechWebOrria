@@ -682,8 +682,6 @@ div.produktuaHandi div.produktuaIrudia a img {
   padding: 10px;
   text-decoration: none;
   cursor: pointer;
-
-  
 }
 .sidebar2 a:hover {
   background: var(--urdinIlunena);
@@ -716,22 +714,28 @@ div.produktuaHandi div.produktuaIrudia a img {
   width: 50%;
   margin: 10px;
 }
-#section3 #section3Kont form input {
+/* #section3 #section3Kont form input[type=text] {
   width: 80%;
   height: 18px;
   padding: 0;
-}
+} */
 #bezeroAldaketa input {
   width: 100%;
   height: 18px;
   padding: 0;
   margin: 10px;
 }
-#pasahitzaAldaketa input[type="text"] {
+#bezeroAldaketa input[type=submit]{
+  height: 40px;
+}
+#pasahitzaAldaketa input{
   width: 100%;
   height: 18px;
   padding: 0;
   margin: 10px;
+}
+#pasahitzaAldaketa input[type=submit]{
+  height: 40px;
 }
 .openbtn1 {
   font-size: 20px;
@@ -761,11 +765,7 @@ div.produktuaHandi div.produktuaIrudia a img {
 .erabBtn:hover{
   background-color: var(--urdina);
 }
-#pasahitzaAldaketa input[type="submit"] {
-  width: 90%;
-  height: 30px;
-  padding: 0;
-}
+
 @media (max-width: 480px) {
   /* Navbar */
   .navbar {
@@ -910,7 +910,7 @@ div.produktuaHandi div.produktuaIrudia a img {
     grid-template-columns: repeat(2, 1fr);
   }
   .sidebar {
-    width: 80%;
+    width: 100%;
   }
 
   /* Produktua */
@@ -928,6 +928,27 @@ div.produktuaHandi div.produktuaIrudia a img {
   }
   .produktubtn {
     width: 80%;
+  }
+
+  /* ERABILTZAILEA */
+  #section3Kont {
+    display: block;
+    gap: 0;
+    text-align: center;
+  }
+ 
+  #section3 #section3Kont form.eguneratu {
+    text-align: left;
+    width: 100%;
+  }
+  #section3 #section3Kont form.eguneratu label {
+    width: 50%;
+    margin: 10px;
+  }
+  #section3 #section3Kont form input[type=text] {
+    width: 100%;
+    height: 18px;
+    padding: 0;
   }
 }
 /* Botones y textos */
@@ -950,3 +971,4 @@ h2,
 h3 {
   font-size: 18px;
 }
+

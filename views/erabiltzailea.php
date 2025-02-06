@@ -109,14 +109,14 @@ $conn = konexioaEgin();
                     echo '</tbody></table>';
                     echo '</div>';
                 } else {
-                    echo '<h5>Eskaerarik ez dago</h5>';
+                    echo '<h5><?= trans("eskEz") ?></h5>';
                 }?>
             </div>
         </div>
         <div id="section3" class="section">
             <div id="section3Kont">
                 <form class="eguneratu" id="bezeroAldaketa" method="POST" action="">
-                    <h2 class="egunTitul"><?= trans("clientChange") ?></h2>
+                    <h2 class="egunTitul"><?= trans("passwordChange") ?></h2>
                     <?php
                     $conn = konexioaEgin();
                     if (!$conn) {
@@ -252,16 +252,16 @@ $conn = konexioaEgin();
         })
             .done(function (informazioa) {
                 if (informazioa == 'ongi') {
-                    alert("Aldaketak eginda!");
+                    alert(<?= trans("all") ?>);
                     window.location.href = "erabiltzailea.php";
                 } else if (informazioa == 'error') {
-                    alert("Zerbait gaizki joan da. Saiatu berriro beranduago.");
+                    alert("Error...");
                 } else if (informazioa == 'falta') {
-                    alert("Zerbait gaizki joan da.")
+                    alert("Error...")
                 }
             })
             .fail(function () {
-                alert("Zerbaitek ez du funtzionatu")
+                alert("Error...")
             })
             .always(function () {
 

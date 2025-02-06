@@ -26,9 +26,9 @@ if (!isset($_COOKIE['accept_cookies'])) {
     <?php include 'header.php'; ?>
     <?php if ($showCookieBanner): ?>
     <div class="cookie-banner">
-        <p>Este sitio utiliza cookies para mejorar su experiencia. <a href="#">Más información</a></p>
+        <p><?= trans("cookieMezua") ?> <a href="#"><?= trans("info") ?></a></p>
         <form method="post">
-            <button type="submit" name="accept">Aceptar</button>
+            <button type="submit" name="accept"><?= trans("ok") ?></button>
         </form>
     </div>
 <?php endif; ?>

@@ -91,16 +91,16 @@ session_start();
                     if (informazioa == 'ongi') {
                         window.location.href = "hasiera.php";
                     } else if (informazioa == 'error') {
-                        alert("Erabiltzailea edo pasahitza desegokiak dira");
                         $('#pasahitza').val("");
+                        alert('<?php echo trans("alertPass"); ?>');
                     } else if (informazioa == 'falta') {
-                        alert("Erabiltzaile edo/eta pasahitza hutsik daude.")
+                        alert('<?php echo trans("alertFalta"); ?>');
                     } else if (informazioa == 'dberror') {
-                        alert("dberror")
+                        alert("dberror");
                     }
                 })
                 .fail(function () {
-                    alert("Zerbaitek ez du funtzionatu")
+                    alert("Error...")
                 })
                 .always(function () {
 
@@ -136,17 +136,17 @@ session_start();
             })
                 .done(function (informazioa) {
                     if (informazioa == 'ongi') {
-                        alert("Ongi etorri!")
+                        alert('<?php echo trans("ongiEtorri"); ?>')
                     } else if (informazioa == 'error') {
-                        alert("Zerbait gaizki joan da. Saiatu berriro beranduago.");
+                        alert('<?php echo trans("error1"); ?>');
                     } else if (informazioa == 'falta') {
-                        alert("Datuak falta dira erregistroa egin ahal izateko.")
+                        alert('<?php echo trans("error2"); ?>')
                     } else if (informazioa == 'repe') {
-                        alert("Dagoeneko norbait erregistratu da posta elektroniko honekin.")
+                        alert('<?php echo trans("error3"); ?>')
                     }
                 })
                 .fail(function () {
-                    alert("Zerbaitek ez du funtzionatu")
+                    alert("Error...")
                 })
                 .always(function () {
 

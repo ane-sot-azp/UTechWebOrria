@@ -113,9 +113,8 @@ a.right div.erabiltzailea{
 }
 .lehioa-contenido {
   position: relative;
-  background-color: var(--urdinArgienaFondo);
+  background-color:white;
   color: var(--urdinIlunena);
-  padding: 20px;
   border-radius: 10px;
   width: 1000px;
   text-align: center;
@@ -123,16 +122,24 @@ a.right div.erabiltzailea{
   max-height: 60dvh;
   overflow-y: auto;
 }
+.eskaera table img{
+  width: 100px;
+  height: 100px;
+}
+.eskaera table{
+  width: 100%;
+}
+
 .itxi {
   position: absolute;
   top: 10px;
   right: 20px;
   text-decoration: none;
   font-size: 30px;
-  color: white;
+  color: var(--urdinIlunena);
 }
 .itxi:hover {
-  color: black;
+  color: var(--urdina);
 }
 
 @media (max-width: 480px) {
@@ -202,7 +209,21 @@ a.right div.erabiltzailea{
     margin: 0;
     width: 90%;
   }
-
+  
+  .lehioa-contenido {
+  padding: 0px;
+  border-radius: 10px;
+  text-align: center;
+  overflow-y: auto;
+  }
+  .eskaera table img{
+    width: 50px;
+    height: 50px;
+  }
+  .eskaera table, .eskaera th,
+  .eskaera tr, .eskaera td{
+    width: 50%;
+  }
   input[type="search"] {
     width: 100%;
     height: 25px;
