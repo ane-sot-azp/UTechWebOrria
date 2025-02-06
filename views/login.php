@@ -92,7 +92,6 @@ session_start();
                         window.location.href = "hasiera.php";
                     } else if (informazioa == 'error') {
                         alert("Erabiltzailea edo pasahitza desegokiak dira");
-                        $('#erabiltzailea').val("");
                         $('#pasahitza').val("");
                     } else if (informazioa == 'falta') {
                         alert("Erabiltzaile edo/eta pasahitza hutsik daude.")

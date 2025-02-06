@@ -112,16 +112,16 @@ a.right div.erabiltzailea{
   display: flex;
 }
 .lehioa-contenido {
-  display: flex;
-  flex-direction: row;
   position: relative;
   background-color: var(--urdinArgienaFondo);
-  color: white;
+  color: var(--urdinIlunena);
   padding: 20px;
   border-radius: 10px;
   width: 1000px;
   text-align: center;
   padding: 80px;
+  max-height: 60dvh;
+  overflow-y: auto;
 }
 .itxi {
   position: absolute;

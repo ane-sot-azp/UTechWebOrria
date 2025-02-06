@@ -141,15 +141,11 @@
                             </div>
                         </div><br><br>
                     </li>
-
                     <input class="botoiaez" type="reset" id="ezabatu" value="<?= trans("erase") ?>" />
-
-
                 </form>
             </ul>
         </div>
         <div class="produktuakKat">
-
         </div>
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -171,6 +167,33 @@
                     $(".produktuakKat").css('margin-left', 0 + "%");
                 }
             }
+            function saskira(produktuaId) {
+                    $.ajax({
+                        url: "eragiketak.php",
+                        method: "POST",
+                        data: {
+                            akzioa: "saskira",
+                            produktuaId: produktuaId
+                        }
+                    })
+                        .done(function (informazioa) {
+                            if (informazioa == 'ongi') {
+                                alert("Produktua saskira sartu da");
+                                location.reload();
+                            } else if (informazioa == 'error') {
+                                alert("Zerbait gaizki atera da...");
+                            } else if (informazioa == 'dberror') {
+                                alert("dberror")
+                            }
+                        })
+                        .fail(function () {
+                            alert("Zerbaitek ez du funtzionatu")
+                        })
+                        .always(function () {
+
+                        })
+
+                }
             $(document).ready(function () {
 
                 function hautatutakoBaloreak(name) {
@@ -180,6 +203,7 @@
                     });
                     return baloreak;
                 }
+                
 
                 // Función para filtrar productos
                 function produktuakFiltratu() {
@@ -220,7 +244,7 @@
                         <p><b><?= trans("marka") ?>:</b> ${produktua.marka}</p><br>
                         <p style="height:40px"><b><?= trans("made") ?>:</b> ${produktua.modeloa}</p>
                         <p><b><?= trans("price") ?>:</b> ${produktua.salmentaPrezioa}€</p><br>
-                        <a class="saskira" href=""><i class="fa-solid fa-cart-plus"></i></a>
+                        <a class="saskira" onclick="saskira(${produktua.idProduktua})" href=""><i class="fa-solid fa-cart-plus"></i></a>
                     </div>
                 `;
                         });

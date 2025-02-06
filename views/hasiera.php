@@ -1,3 +1,14 @@
+<?php
+if (!isset($_COOKIE['accept_cookies'])) {
+    $showCookieBanner = true;
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accept'])) {
+        setcookie('accept_cookies', '1', time() + (86400 * 30), "/"); // Cookie válida por 30 días
+        $showCookieBanner = false;
+    }
+} else {
+    $showCookieBanner = false;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,6 +24,14 @@
 
 <body>
     <?php include 'header.php'; ?>
+    <?php if ($showCookieBanner): ?>
+    <div class="cookie-banner">
+        <p>Este sitio utiliza cookies para mejorar su experiencia. <a href="#">Más información</a></p>
+        <form method="post">
+            <button type="submit" name="accept">Aceptar</button>
+        </form>
+    </div>
+<?php endif; ?>
     <img class="deskontuak" src="<?= trans(indexPhrase: "deskontuIrudia") ?>" alt="deskontuak">
     <div class="produktuak">
         <h1><?= trans("azProd") ?></h1>

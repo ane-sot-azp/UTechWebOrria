@@ -21,12 +21,14 @@ $conn = konexioaEgin();
 ?>
 <?php include 'header.php'; ?>
 <div class="erabiltzaileaa">
-    <div class="sidebar2">
+<button class="openbtn1" onclick="openNav()">☰ <?= trans("aukerak") ?></button>
+    <div class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a><br><br>
         <a onclick="showSection('section1')"><?= trans("sekz1") ?></a>
         <a onclick="showSection('section2')"><?= trans("sekz2") ?></a>
         <a onclick="showSection('section3')"><?= trans("sekz3") ?></a>
         <form method="post" action="../src/logout.php">
-            <button type="submit">Saioa itxi</button>
+            <button class="erabBtn" type="submit">Saioa itxi</button>
         </form>
     </div>
     <div class="content">
@@ -54,7 +56,7 @@ $conn = konexioaEgin();
                     <option value="1"><?= trans("ondo") ?></option>
                     <option value="0"><?= trans("gaizki") ?></option>
                 </select><br><br>
-                <input type="submit" class="botoiak2 prodBerr" value="<?= trans("send") ?>">
+                <input type="submit" class="erabBtn prodBerr" value="<?= trans("send") ?>">
             </form>
         </div>
         <div id="section2" class="section">
@@ -68,53 +70,47 @@ $conn = konexioaEgin();
                 $id = $_SESSION['id'];
                 $sql = "SELECT idEskaeraH, Produktua_idProduktua, kopurua, prezioa, egoera, data, faktura FROM eskaerahistorikoa WHERE Bezeroa_idBezeroa=$id ORDER BY data DESC";
                 $result = $conn->query($sql);
+                $orders = [];
+                
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        $idEskaeraH = $row["idEskaeraH"];
-                        $Produktua_idProduktua = $row["Produktua_idProduktua"];
-                        $kopurua = $row["kopurua"];
-                        $prezioa = $row["prezioa"];
-                        $egoera = $row["egoera"];
-                        $data = $row["data"];
-                        $faktura = $row["faktura"];
-                        $totala = $row["total"];
+                        $orders[] = $row;
+                        $dataa = substr( $orders[0]["data"], 0, 10); $orders[0]["data"];
                     }
-                    $sql1 = "SELECT p.marka, p.modeloa, p.irudia1 FROM produktua p JOIN eskaerahistorikoa e ON e.Produktua_idProduktua=p.idProduktua";
-                    $result1 = $conn->query($sql1);
-                    if ($result1->num_rows > 0) {
-                        echo '<div id="eskaera' . $idEskaeraH . '" class="eskaera">';
-                        echo '<h5>Eskaera data: ' . $data . '</h5>';
-                        echo '<table>';
-                        echo '<thead>';
-                        echo '<tr><th>Data</th>';
-                        echo '<th></th>';
-                        echo '<th>Marka</th>';
-                        echo '<th>Modeloa</th>';
-                        echo '<th>Kopurua</th>';
-                        echo '<th>Prezioa</th>';
-                        echo '</tr></thead>';
-                        while ($row = $result->fetch_assoc()) {
-                            $marka = $row["marka"];
-                            $modeloa = $row["modeloa"];
-                            $irudia1 = $row["irudia1"];
-                            echo '<tbody><tr>';
-                            echo '<td>' . $data . '</td>';
-                            echo '<td><img src="' . $irudia1 . '" alt="produktua" width="100" height="100"></td>';
-                            echo '<td>' . $marka . '</td>';
-                            echo '<td>' . $modeloa . '</td>';
-                            echo '<td>' . $kopurua . '</td>';
-                            echo '<td>' . $prezioa . '</td>';
-                            echo '</tr></tbody>';
-                        }
-                    } else {
-                        echo '<h5>Eskaerarik ez dago</h5>';
-                    }
-                    echo '<h5>Eskaerarik ez dago</h5>';
                 }
-                echo '<h5>Eskaerarik ez dago</h5>';
-
-
-                ?>
+                
+                if (!empty($orders)) {
+                    echo '<div id="eskaera' . $orders[0]["idEskaeraH"] . '" class="eskaera"> ';
+                    echo '<table width="100%">';
+                    echo '<thead>';
+                    echo '<tr><th>Data</th>';
+                    echo '<th></th>';
+                    echo '<th>Marka</th>';
+                    echo '<th>Modeloa</th>';
+                    echo '<th>Kopurua</th>';
+                    echo '<th>Prezioa</th>';
+                    echo '</tr></thead><tbody>';
+                
+                    foreach ($orders as $order) {
+                        $sql1 = "SELECT marka, modeloa, irudia1 FROM produktua WHERE idProduktua=" . $order["Produktua_idProduktua"];
+                        $result1 = $conn->query($sql1);
+                        if ($result1->num_rows > 0) {
+                            $product = $result1->fetch_assoc();
+                            echo '<tr>';
+                            echo '<td>' . $dataa . '</td>';
+                            echo '<td><a href="produktua.php?produktuid='.$order["Produktua_idProduktua"].'"><img src="../public/irudiak/PRODUKTUAK' . $product["irudia1"] . '" alt="produktua" width="100px" height="100px"></a></td>';
+                            echo '<td>' . $product["marka"] . '</td>';
+                            echo '<td>' . $product["modeloa"] . '</td>';
+                            echo '<td>' . $order["kopurua"] . '</td>';
+                            echo '<td>' . $order["prezioa"] . ' €</td>';
+                            echo '</tr>';
+                        }
+                    }
+                    echo '</tbody></table>';
+                    echo '</div>';
+                } else {
+                    echo '<h5>Eskaerarik ez dago</h5>';
+                }?>
             </div>
         </div>
         <div id="section3" class="section">
@@ -165,7 +161,7 @@ $conn = konexioaEgin();
                     echo '<label for="postaKodea">' . trans("PK") . ':</label><br>';
                     echo '<input type="text" id="postaKodea" name="postaKodea"
                     value="' . $postaKodea . '"><br>';
-                    echo '<input class="botoiak2 eguneraketa" type="submit" value="' . trans("signUp") . '"></input>';
+                    echo '<input class="erabBtn eguneraketa" type="submit" value="' . trans("update") . '"></input>';
 
                     echo '</form>';
                     echo '<form class="eguneratu" id="pasahitzaAldaketa" method="POST" action="">';
@@ -176,7 +172,7 @@ $conn = konexioaEgin();
                     echo '<input type="password" id="pasahitza2" name="pasahitza2" required><br>';
                     echo '<label for="pasahitza22">' . trans("newpassword2") . ':<span class="required">*</span></label>';
                     echo '<input type="password" id="pasahitza22" name="pasahitza22" required><br>';
-                    echo '<input class="botoiak2 pasahitzaEgun" type="submit" value="' . trans("signUp") . '"></input>';
+                    echo '<input class="erabBtn pasahitzaEgun" type="submit" value="' . trans("update") . '"></input>';
                     ?>
 
                 </form>
@@ -187,6 +183,21 @@ $conn = konexioaEgin();
 </div>
 
 <script>
+    function openNav() {
+                var win = $(window).width();
+                $(".sidebar").css('display', "block");
+                if (win > 480) {
+                    $(".content").css('margin-left', 33 + "%");
+                }
+            }
+
+            function closeNav() {
+                var win = $(window).width();
+                $(".sidebar").css('display', "none");
+                if (win > 480) {
+                    $(".content").css('margin-left', 0 + "%");
+                }
+            }
     $(document).ready(function () {
         $(".eguneraketa").on("click", function (e) {
             e.preventDefault();
@@ -207,6 +218,12 @@ $conn = konexioaEgin();
             section.classList.remove('active');
         });
         document.getElementById(sectionId).classList.add('active');
+        var win = $(window).width();
+                $(".sidebar").css('display', "none");
+                if (win > 480) {
+                    $(".content").css('margin-left', 0 + "%");
+                }
+
     }
     function bezeroaEguneratu() {
         var izena = $('#izena').val();

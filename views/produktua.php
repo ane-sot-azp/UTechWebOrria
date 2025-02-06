@@ -47,7 +47,7 @@
                 echo '<div class="produktuaInfo" id="produktuainfo' . $row['idProduktua'] . '">';
                 echo '<p class="produktuIzena">' . $row['marka'] . ' ' . $row['modeloa'] . '</p><br>';
                 echo '<h1>' . $row['salmentaPrezioa'] . '€</h1><br>';
-                echo '<button class="produktubtn" href="">Saskira sartu</button>';
+                echo '<button class="produktubtn" onclick="saskira(' . $row['idProduktua'] . ')">Saskira sartu</button>';
 
                 switch ($row['ProduktuMota_idProduktuMota']) {
                     case 1:
@@ -89,7 +89,35 @@
         ?>
     </div>
     <script>
+        function saskira(produktuaId) {
+                    $.ajax({
+                        url: "eragiketak.php",
+                        method: "POST",
+                        data: {
+                            akzioa: "saskira",
+                            produktuaId: produktuaId
+                        }
+                    })
+                        .done(function (informazioa) {
+                            if (informazioa == 'ongi') {
+                                alert("Produktua saskira sartu da");
+                                //window.location.href = "hasiera.php";
+                            } else if (informazioa == 'error') {
+                                alert("Zerbait gaizki atera da...");
+                            } else if (informazioa == 'dberror') {
+                                alert("dberror")
+                            }
+                        })
+                        .fail(function () {
+                            alert("Zerbaitek ez du funtzionatu")
+                        })
+                        .always(function () {
+
+                        })
+
+                }
         $(function () {
+            
             $(".produktuaIrudia").hover(function (e) {
                 // Store original src for hover off
                 const originalSrc = $(this).find("img").attr("src");
