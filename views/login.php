@@ -34,7 +34,7 @@ session_start();
             </form>
         </div>
         <div id="erregistroa">
-            <h3 class=""> <!-- <a href="#miDiv"> --><?= trans("newClient") ?> <!-- </a> --></h3><br><br>
+            <h3 class=""><?= trans("newClient") ?></h3><br><br>
             <form id="miDiv" method="POST" action="">
                 <label for="izena"><?= trans("izena") ?>:<span class="required"><span class="required">*</span></span></label><br>
                 <input class="" type="text" id="izena" name="izena" required><br><br>

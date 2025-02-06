@@ -4,7 +4,7 @@ require_once("../src/db.php");
 
 if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
     $conn = konexioaEgin();
-    if(!$conn){
+    if (!$conn) {
         echo "dberror";
     }
     $erabiltzailea = $conn->real_escape_string($_POST["erabiltzailea"]);
@@ -18,12 +18,11 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            while($row=$result->fetch_assoc()){
+            while ($row = $result->fetch_assoc()) {
                 $_SESSION["username"] = $erabiltzailea;
                 $_SESSION["izena"] = $row["izena"];
                 $_SESSION["id"] = $row["idBezeroa"];
-                $_SESSION["abizena"] = $row["abizena"];
-                $_SESSION["nanEdoNif"] = $row["nanEdoNif"];
+                $_SESSION["pasahitza"] = $row["pasahitza"];
             }
             $conn->close();
             echo "ongi";
@@ -50,18 +49,47 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
         echo "falta";
         die;
     } else {
-        $sql1 ="SELECT * FROM bezeroa WHERE postaElektronikoa='$postaElektronikoa'";
-        $result1=$conn->query($sql1);
+        $sql1 = "SELECT * FROM bezeroa WHERE postaElektronikoa='$postaElektronikoa'";
+        $result1 = $conn->query($sql1);
         if ($result1->num_rows > 0) {
             $conn->close();
             echo "repe";
             die;
         } else {
-        $sql = "INSERT INTO bezeroa (nanEdoNif, izena, abizena, telefonoZenbakia, postaElektronikoa, helbidea, herria, postaKodea, pasahitza)VALUES(
+            $sql = "INSERT INTO bezeroa (nanEdoNif, izena, abizena, telefonoZenbakia, postaElektronikoa, helbidea, herria, postaKodea, pasahitza)VALUES(
          '$nan', '$izena', '$abizena', '$telefonoZenbakia', '$postaElektronikoa', '$helbidea', '$herria', '$postaKodea', '$pasahitza2')";
-        $result = $conn->query($sql);
+            $result = $conn->query($sql);
 
-        if ($result==true) {
+            if ($result == true) {
+                $conn->close();
+                echo "ongi";
+                die;
+            } else {
+                $conn->close();
+                echo "error";
+                die;
+            }
+        }
+    }
+} else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "bezeroaEguneratu") {
+    $conn = konexioaEgin();
+    $izena = $conn->real_escape_string($_POST["izena"]);
+    $abizena = $conn->real_escape_string($_POST["abizena"]);
+    $nan = $conn->real_escape_string($_POST["nan"]);
+    $postaElektronikoa = $conn->real_escape_string($_POST["postaElektronikoa"]);
+    $telefonoZenbakia = $conn->real_escape_string($_POST["telefonoZenbakia"]);
+    $helbidea = $conn->real_escape_string($_POST["helbidea"]);
+    $herria = $conn->real_escape_string($_POST["herria"]);
+    $postaKodea = $conn->real_escape_string($_POST["postaKodea"]);
+    $id = $_SESSION['id'];
+    if ($izena === '' or $abizena === '' or $nan === '' or $postaElektronikoa === '' or $telefonoZenbakia === '') {
+        $conn->close();
+        echo "falta";
+        die;
+    } else {
+        $sql = "UPDATE bezeroa SET izena='$izena', abizena='$abizena', nanEdoNif='$nan', postaElektronikoa='$postaElektronikoa', telefonoZenbakia='$telefonoZenbakia', helbidea='$helbidea', herria='$herria', postaKodea='$postaKodea' WHERE idBezeroa='$id'";
+        $result = $conn->query($sql);
+        if ($result == true) {
             $conn->close();
             echo "ongi";
             die;
@@ -71,6 +99,63 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
             die;
         }
     }
-}
-}
+} else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "pasahitzaEguneratu") {
+    $conn = konexioaEgin();
+    $pasahitzaold = $conn->real_escape_string($_POST["pasahitzaold"]);
+    $sessionPasahitza = $conn->real_escape_string($_POST["sessionPasahitza"]);
+    $pasahitza1 = $conn->real_escape_string($_POST["pasahitza1"]);
+    $pasahitza2 = $conn->real_escape_string($_POST["pasahitza2"]);
+    $id = $_SESSION['id'];
+    if ($pasahitzaold != $sessionPasahitza) {
+        $conn->close();
+        echo "pasahitza";
+        die;
+    } else {
+        if ($pasahitza1 != $pasahitza2) {
+            $conn->close();
+            echo "falta";
+            die;
+        } else {
+            $sql = "UPDATE bezeroa SET pasahitza='$pasahitza1'WHERE idBezeroa='$id'";
+            $result = $conn->query($sql);
+            $_SESSION["pasahitza"] = $pasahitza1;
+            if ($result == true) {
+                $conn->close();
+                echo "ongi";
+                die;
+            } else {
+                $conn->close();
+                echo "error";
+                die;
+            }
+        }
+    }
+}else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "produktuBerria") {
+    $conn = konexioaEgin();
+    $mota = $conn->real_escape_string($_POST["mota"]);
+    $marka = $conn->real_escape_string($_POST["marka"]);
+    $modeloa= $conn->real_escape_string($_POST["modeloa"]);
+    $ezaugarriak= $conn->real_escape_string($_POST["ezaugarriak"]);
+    $egoera= $conn->real_escape_string($_POST["egoera"]);
+    $id = $_SESSION['id'];
+    if ($marka === '' or $mota === '' or $modeloa === '' or $ezaugarriak === '' or $egoera === '') {
+        $conn->close();
+        echo "falta";
+        die;
+    } else {
+        $sql = "INSERT INTO prodprest (ProduktuMota_idProduktuMota, Bezeroa_idBezeroa, marka, modeloa, ezaugarriak, egoera)
+        VALUES ($mota, $id, '$marka', '$modeloa', '$ezaugarriak', $egoera)";
+            $result = $conn->query($sql);
+            if ($result == true) {
+                $conn->close();
+                echo "ongi";
+                die;
+            } else {
+                $conn->close();
+                echo "error";
+                die;
+            }
+        }
+    }
+
 ?>

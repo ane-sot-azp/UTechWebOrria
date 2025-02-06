@@ -50,6 +50,7 @@ input[type="search"] {
   padding: 0px;
   padding-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
 .navbar a.right i{
   font-size: 25px;

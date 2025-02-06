@@ -21,3 +21,13 @@ return{
 
 header.php:
 Konstanteak definitzeko=
+
+
+$_SESSION["nan"] = $row["nanEdoNif"];
+                $_SESSION["izena"] = $row["izena"];
+                $_SESSION["abizena"] = $row["abizena"];
+                $_SESSION["telefonoa"] = $row["telefonoZenbakia"];
+                $_SESSION["postaElektronikoa"] = $row["postaElektronikoa"];
+                $_SESSION["helbidea"] = $row["helbidea"];
+                $_SESSION["herria"] = $row["heria"];
+                $_SESSION["postaKodea"] = $row["postaKodea"];

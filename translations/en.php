@@ -40,7 +40,7 @@ return [
                     %68ko hazkundea espero dute sektorean aurten eta Euskal Herrian Tecnaliada ikerketa robotikoaren
                     erreferenteetako bat. Ikerketa zentroak Gipuzkoako Zientzia eta Teknolgia Parkean duen egoitzan
                     hartu gaitu Urko Esnaola Tecnaliako robotika-proiektuetarako zuzendariak.",
-    "alb2Alb2" => "THiru robot aurkeztu dizkigu Esnaolak: Robotnik enpresarekin batera garatu duten eta aeronautikarako
+    "alb2Alb2" => "'Hiru robot aurkeztu dizkigu Esnaolak: Robotnik enpresarekin batera garatu duten eta aeronautikarako
                     piezak leuntzen dituen Thomas robota, errealitate birtualeko betaurrekak erabiliz leuntzea
                     automatizatzeko gai den beso robotikoa, eta NextStage, bitrozeramikak era autonomoan eta ahots
                     aginduz muntatzeko gai den humanoidea (baita euskaraz ere).",
