@@ -100,8 +100,8 @@
                     })
                         .done(function (informazioa) {
                             if (informazioa == 'ongi') {
-                                alert(<?= trans("saskiratu") ?>);
-                                //window.location.href = "hasiera.php";
+                                alert("<?= trans("saskiratu") ?>");
+                                location.reload();
                             } else if (informazioa == 'error') {
                                 alert("Error...");
                             } else if (informazioa == 'dberror') {

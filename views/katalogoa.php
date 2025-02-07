@@ -178,7 +178,7 @@
                     })
                         .done(function (informazioa) {
                             if (informazioa == 'ongi') {
-                                alert(<?= trans("saskiratu") ?>);
+                                alert("<?= trans("saskiratu") ?>");
                                 location.reload();
                             } else if (informazioa == 'error') {
                                 alert("Error...");

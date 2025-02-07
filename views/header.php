@@ -40,8 +40,8 @@ if (isset($_POST['selectedLang'])) {
                 <div class="menua">
                     <div class="bilatu">
                         <a class="bilatu">
-                            <form action="buscar.php" method="GET">
-                                <input type="search" name="query" placeholder="<?= trans("bilatu...") ?>...">
+                            <form action="katalogoa.php" method="GET">
+                                <input type="search" name="query" id="searchInput" placeholder="<?= trans("bilatu...") ?>...">
                             </form>
                         </a>
                     </div>
@@ -52,7 +52,9 @@ if (isset($_POST['selectedLang'])) {
                         <a class="left" href="kontaktua.php"><?= trans("contact") ?></a>
                     </div>
                     <div id="right">
-                        <div class="right"><a class="right" href="#saskia"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <div class="right">
+                            <a class="right" href="#saskia"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <span class='badge badge-warning' id='lblCartCount'></span>
                         </div>
                         <div class="right">
                             <?php
@@ -103,60 +105,75 @@ if (isset($_POST['selectedLang'])) {
                 if (!$conn) {
                     echo "dberror";
                 }
-                if(isset($_SESSION["username"]) && $_SESSION["username"] != ""){
+                if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
                     $id = $_SESSION['id'];
-                $sql = "SELECT * FROM saskia WHERE Bezeroa_idBezeroa=$id ORDER BY data DESC";
-                $result = $conn->query($sql);
-                $orders = [];
+                    $sql = "SELECT * FROM saskia WHERE Bezeroa_idBezeroa=$id ORDER BY data DESC";
+                    $result = $conn->query($sql);
+                    $orders = [];
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $orders[] = $row;
-                    }
-                }
-
-                if (!empty($orders)) {
-                    echo '<div id="eskaera' . $orders[0]["idSaskia"] . '" class="eskaera"> ';
-                    echo '<table>';
-                    echo '<thead>';
-                    echo '<th></th>';
-                    echo '<th>Marka</th>';
-                    echo '<th>Modeloa</th>';
-                    echo '<th>Kopurua</th>';
-                    echo '<th>Prezioa</th>';
-                    echo '<th></th>';
-                    echo '</tr></thead><tbody>';
-
-                    foreach ($orders as $order) {
-                        $sql1 = "SELECT p.marka, p.modeloa, p.irudia1, s.kopurua, s.prezioa FROM produktua p JOIN saskia s ON p.idProduktua=" . $order["Produktua_idProduktua"];
-                        $result1 = $conn->query($sql1);
-                        if ($result1->num_rows > 0) {
-                            $product = $result1->fetch_assoc();
-                            echo '<tr>';
-                            echo '<td><a href="produktua.php?produktuid=' . $order["Produktua_idProduktua"] . '"><img src="../public/irudiak/PRODUKTUAK' . $product["irudia1"] . '" alt="produktua"></a></td>';
-                            echo '<td>' . $product["marka"] . '</td>';
-                            echo '<td>' . $product["modeloa"] . '</td>';
-                            echo '<td>' . $order["kopurua"] . '</td>';
-                            echo '<td>' . $order["prezioa"] . ' €</td>';
-                            echo '<td><a class="right" onclick="saskitikAtera(' . $order["idSaskia"] . ')"><i class="fa-regular fa-trash-can"></i></a></td>';
-                            echo '</tr>';
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $orders[] = $row;
                         }
                     }
-                    echo '</tbody></table>';
-                    echo '<button class="erabBtn" onclick="erosi()" type="button">Erosi!</button>';
-                    echo '</div>';
+
+                    if (!empty($orders)) {
+                        echo '<div id="eskaera' . $orders[0]["idSaskia"] . '" class="eskaera"> ';
+                        echo '<table>';
+                        echo '<thead>';
+                        echo '<th></th>';
+                        echo '<th>Marka</th>';
+                        echo '<th>Modeloa</th>';
+                        echo '<th>Kopurua</th>';
+                        echo '<th>Prezioa</th>';
+                        echo '<th></th>';
+                        echo '</tr></thead><tbody>';
+
+                        foreach ($orders as $order) {
+                            $sql1 = "SELECT p.marka, p.modeloa, p.irudia1, s.kopurua, s.prezioa FROM produktua p JOIN saskia s ON p.idProduktua=" . $order["Produktua_idProduktua"];
+                            $result1 = $conn->query($sql1);
+                            if ($result1->num_rows > 0) {
+                                $product = $result1->fetch_assoc();
+                                echo '<tr>';
+                                echo '<td><a href="produktua.php?produktuid=' . $order["Produktua_idProduktua"] . '"><img src="../public/irudiak/PRODUKTUAK' . $product["irudia1"] . '" alt="produktua"></a></td>';
+                                echo '<td>' . $product["marka"] . '</td>';
+                                echo '<td>' . $product["modeloa"] . '</td>';
+                                echo '<td>' . $order["kopurua"] . '</td>';
+                                echo '<td>' . $order["prezioa"] . ' €</td>';
+                                echo '<td><a class="right" onclick="saskitikAtera(' . $order["idSaskia"] . ')"><i class="fa-regular fa-trash-can"></i></a></td>';
+                                echo '</tr>';
+                            }
+                        }
+                        echo '</tbody></table>';
+                        echo '<button class="erabBtn" onclick="erosi()" type="button">Erosi!</button>';
+                        echo '</div>';
+                    } else {
+                        echo '<h5>' . trans("emptyCart") . '</h5>';
+                    }
                 } else {
-                    echo '<h5>'.trans("emptyCart").'</h5>';
+                    echo '<h5>' . trans("noUser") . '</h5>';
                 }
-                }else{
-                    echo '<h5>'.trans("noUser").'</h5>';}
-                 ?>
+                ?>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script>
+            function saskiKont(){
+             $.ajax({
+                url: '../src/saskiKont.php',
+                type: 'GET',
+                success: function (data) {
+                    $('#lblCartCount').html(data);
+                },
+                error: function () {
+                    alert('Error al cargar los productos.');
+                }
+            });
+        }
             function erosi() {
+               
+            
                 $.ajax({
                     url: "eragiketak.php",
                     method: "POST",
@@ -167,7 +184,7 @@ if (isset($_POST['selectedLang'])) {
                     .done(function (informazioa) {
                         console.log("Response: " + informazioa);
                         if (informazioa == 'ongi') {
-                            alert(echo trans("eroskAlert"));
+                            alert("<?= trans("eroskAlert") ?>");
                             location.reload();
                         } else if (informazioa == 'error') {
                             alert("Error...");
@@ -196,7 +213,7 @@ if (isset($_POST['selectedLang'])) {
                 })
                     .done(function (informazioa) {
                         if (informazioa == 'ongi') {
-                            alert(echo trans("saskAtera"));
+                            alert("<?= trans("saskAtera") ?>");
                             location.reload();
                         } else if (informazioa == 'error') {
                             alert("Error...");
@@ -222,6 +239,8 @@ if (isset($_POST['selectedLang'])) {
                     }
                 }
             }
+
+            saskiKont();
         </script>
 
     </header>

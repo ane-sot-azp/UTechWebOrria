@@ -25,6 +25,12 @@ input[type="search"] {
   background-color: white;
   height: 6em;
 }
+.fa-regular, .far {
+  cursor: pointer;
+}
+.fa-regular:hover{
+  color: red;
+}
 
 .openbtnNav {
   display: none;
@@ -34,6 +40,46 @@ input[type="search"] {
   border: none;
   font-size: 30px;
 }
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+.right {
+  position: relative;
+  display: inline-block;
+}
+
+#lblCartCount {
+  position: absolute;
+  font-size: 12px;
+  background: red;
+  top: 1px; 
+  right: 2px;
+  color: white;
+  padding: 6px 6px;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 4px;
+}
+
+  /* font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px; */
+
 
 .navbar .right {
   float: right;

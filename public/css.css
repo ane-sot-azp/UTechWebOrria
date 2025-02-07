@@ -413,6 +413,7 @@ div.general .produktuakKat .produktuaKat img {
   color: var(--urdinIluna);
   display: block;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .sidebar a:hover {
