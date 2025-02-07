@@ -10,7 +10,7 @@ if (!isset($_SESSION['id'])) {
     echo'0';}else{
 $id = $_SESSION['id'];
 // Consultar los productos
-$sql = "SELECT COUNT(idSaskia) AS kontadorea FROM saskia WHERE Bezeroa_idBezeroa = $id GROUP BY Bezeroa_idBezeroa";
+$sql = "SELECT SUM(kopurua) AS kontadorea FROM saskia WHERE Bezeroa_idBezeroa = $id GROUP BY Bezeroa_idBezeroa";
 $result = $conn->query($sql);
 
 // Mostrar los productos
@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
         echo $row['kontadorea'];
     }
 } else {
-    echo "No hay productos disponibles.";
+    echo "0";
 }
 }
 

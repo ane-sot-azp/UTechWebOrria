@@ -160,24 +160,42 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
     $conn = konexioaEgin();
     $idProduktua = $_POST['produktuaId'];
     $idBezeroa = $_SESSION['id'];
-    $sql1 = '';
-
-    $sql = "INSERT INTO saskia (Bezeroa_idBezeroa, Produktua_idProduktua, kopurua, prezioa, egoera, data)
+    $sql1 = "SELECT * FROM saskia WHERE Bezeroa_idBezeroa = $idBezeroa AND Produktua_idProduktua = $idProduktua";
+    $result1 = $conn->query($sql1);
+    if ($result1->num_rows > 0) {
+        $sql = "UPDATE saskia SET kopurua = (kopurua + 1) WHERE Bezeroa_idBezeroa = $idBezeroa AND Produktua_idProduktua = $idProduktua";
+        $result = $conn->query($sql);
+        if ($result == true) {
+            echo 'ongi';
+        } else {
+            echo 'error';
+        }
+    } else {
+        $sql = "INSERT INTO saskia (Bezeroa_idBezeroa, Produktua_idProduktua, kopurua, prezioa, egoera, data)
         VALUES ($idBezeroa, $idProduktua, 1, (SELECT salmentaPrezioa FROM produktua WHERE idProduktua = $idProduktua), 'saskian', NOW())";
 
-    $result = $conn->query($sql);
-    if ($result == true) {
-        echo 'ongi';
-    } else {
-        echo 'error';
+        $result = $conn->query($sql);
+        if ($result == true) {
+            echo 'ongi';
+        } else {
+            echo 'error';
+        }
     }
     $conn->close();
 } else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "saskitikAtera") {
     $conn = konexioaEgin();
     $idSaskia = $_POST['saskiaId'];
 
-    $sql = "DELETE FROM saskia WHERE idSaskia = $idSaskia";
+    $sql1 = "SELECT kopurua FROM saskia WHERE idSaskia = $idSaskia";
+    $result1 = $conn->query($sql1);
+    $row = $result1->fetch_assoc();
 
+    if ($row['kopurua'] > 1) {
+        $sql = "UPDATE saskia SET kopurua = (kopurua - 1) WHERE idSaskia = $idSaskia";
+
+    } else {
+        $sql = "DELETE FROM saskia WHERE idSaskia = $idSaskia";
+    }
     $result = $conn->query($sql);
     if ($result == true) {
         echo 'ongi';
@@ -185,29 +203,28 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
         echo 'error';
     }
     $conn->close();
-} 
-else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "erosi") {
+} else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "erosi") {
     $conn = konexioaEgin();
     if (!$conn) {
         echo 'dberror';
         exit;
     }
     $id = $_SESSION['id'];
-    $sql1 = "SELECT Produktua_idProduktua FROM saskia WHERE Bezeroa_idBezeroa = $id";
-    $sql2 = "UPDATE saskia SET egoera = 'erosita' WHERE Bezeroa_idBezeroa = $id";
-    $sql = "DELETE FROM saskia WHERE Bezeroa_idBezeroa = $id";
+    $sql1 = "SELECT Produktua_idProduktua, kopurua FROM saskia WHERE Bezeroa_idBezeroa = $id";
 
     $result1 = $conn->query($sql1);
     if ($result1->num_rows > 0) {
         while ($row = $result1->fetch_assoc()) {
             $produktua_id = $row['Produktua_idProduktua'];
+            $kopurua = $row['kopurua'];
 
-            // Actualizar el stock del producto
-            $sql3 = "UPDATE produktua SET stock = stock - 1 WHERE idProduktua = $produktua_id";
-            $conn->query($sql1);
-        }}
-
+            $sql3 = "UPDATE produktua SET stock = stock - $kopurua WHERE idProduktua = $produktua_id";
+            $conn->query($sql3);
+        }
+    }
+    $sql2 = "UPDATE saskia SET egoera = 'erosita' WHERE Bezeroa_idBezeroa = $id";
     $result2 = $conn->query($sql2);
+    $sql = "DELETE FROM saskia WHERE Bezeroa_idBezeroa = $id";
     $result = $conn->query($sql);
     if ($result == true && $result1 == true && $result2 == true) {
         echo 'ongi';

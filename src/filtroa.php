@@ -11,7 +11,7 @@ $sistemaEragilea = isset($_GET['sistemaEragilea']) ? $_GET['sistemaEragilea'] : 
 $prezioa = isset($_GET['prezioa']) ? $_GET['prezioa'] : array();
 
 // Construir la consulta SQL
-$sql = "SELECT idProduktua, irudia1, marka, modeloa, salmentaPrezioa FROM produktua WHERE 1=1";
+$sql = "SELECT idProduktua, irudia1, marka, modeloa, salmentaPrezioa FROM produktua WHERE stock>0";
 // Agregar condiciones según los filtros seleccionados
 if ($mota) {
     $sql .= " AND ProduktuMota_idProduktuMota = '$mota'";

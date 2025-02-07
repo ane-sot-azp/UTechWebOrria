@@ -85,10 +85,10 @@ $conn = konexioaEgin();
                     echo '<thead>';
                     echo '<tr><th>Data</th>';
                     echo '<th></th>';
-                    echo '<th>Marka</th>';
-                    echo '<th>Modeloa</th>';
-                    echo '<th>Kopurua</th>';
-                    echo '<th>Prezioa</th>';
+                    echo '<th>' . trans("markaEsk") . '</th>';
+                    echo '<th>' . trans("modeloEsk") . '</th>';
+                    echo '<th>' . trans("kopuruEsk") . '</th>';
+                    echo '<th>' . trans("prezioaEsk") . '</th>';
                     echo '</tr></thead><tbody>';
                 
                     foreach ($orders as $order) {
