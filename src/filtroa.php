@@ -9,10 +9,9 @@ $prozesagailua = isset($_GET['prozesagailua']) ? $_GET['prozesagailua'] : array(
 $tamaina = isset($_GET['tamaina']) ? $_GET['tamaina'] : array();
 $sistemaEragilea = isset($_GET['sistemaEragilea']) ? $_GET['sistemaEragilea'] : array();
 $prezioa = isset($_GET['prezioa']) ? $_GET['prezioa'] : array();
-$bilatu = isset($_GET["izenaBilatu"]) ? $_GET["izenaBilatu"] : '';
+
 // Construir la consulta SQL
 $sql = "SELECT idProduktua, irudia1, marka, modeloa, salmentaPrezioa FROM produktua WHERE 1=1";
-
 // Agregar condiciones según los filtros seleccionados
 if ($mota) {
     $sql .= " AND ProduktuMota_idProduktuMota = '$mota'";

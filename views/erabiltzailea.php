@@ -116,7 +116,7 @@ $conn = konexioaEgin();
         <div id="section3" class="section">
             <div id="section3Kont">
                 <form class="eguneratu" id="bezeroAldaketa" method="POST" action="">
-                    <h2 class="egunTitul"><?= trans("passwordChange") ?></h2>
+                    <h2 class="egunTitul"><?= trans("clientChange") ?></h2>
                     <?php
                     $conn = konexioaEgin();
                     if (!$conn) {
@@ -165,7 +165,7 @@ $conn = konexioaEgin();
 
                     echo '</form>';
                     echo '<form class="eguneratu" id="pasahitzaAldaketa" method="POST" action="">';
-                    echo '<h2 class="egunTitul">' . trans("clientChange") . '</h2>';
+                    echo '<h2 class="egunTitul">' . trans("passwordChange") . '</h2>';
                     echo '<label for="pasahitzaold">' . trans("oldpassword") . ':<span class="required">*</span></label>';
                     echo '<input type="password" id="pasahitzaold" name="pasahitzaold" required><br>';
                     echo '<label for="pasahitza2">' . trans("newpassword1") . ':<span class="required">*</span></label>';

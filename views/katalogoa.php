@@ -16,6 +16,7 @@
     <?php
     require_once '../src/db.php';
     $conn = konexioaEgin();
+    $bilatu = isset($_GET['bilaketa']) ? $_GET['bilaketa'] : '';
     ?>
     <?php include 'header.php'; ?>
 
@@ -145,7 +146,27 @@
                 </form>
             </ul>
         </div>
+
+
         <div class="produktuakKat">
+            <?php
+            if ($bilatu != "") {
+                $sql = "SELECT * FROM produktua WHERE marka LIKE '%$bilatu%' OR modeloa LIKE '%$bilatu%'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<div class="produktuaKat" id="' . $row["idProduktua"] . '">';
+                        echo '<a href="produktua.php?produktuid=' . $row["idProduktua"] . '" class="prodIrudiak">';
+                        echo '<img id="argazkia" src="../public/irudiak/PRODUKTUAK/' . $row["irudia1"] . '" alt="Irudia ' . $row["idProduktua"] . '"></a>';
+                        echo '<p><b>' . trans("marka") . ':</b> ' . $row["marka"] . '</p><br>';
+                        echo '<p style="height:40px"><b>' . trans("made") . ':</b> ' . $row["modeloa"] . '</p>';
+                        echo '<p><b>' . trans("price") . ':</b> ' . $row["salmentaPrezioa"] . '€</p><br>';
+                        echo '<a class="saskira" onclick="saskira(' . $row["idProduktua"] . ')" href=""><i class="fa-solid fa-cart-plus"></i></a>';
+                        echo '</div>';
+                    }
+                }
+            }
+            ?>
         </div>
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -168,32 +189,32 @@
                 }
             }
             function saskira(produktuaId) {
-                    $.ajax({
-                        url: "eragiketak.php",
-                        method: "POST",
-                        data: {
-                            akzioa: "saskira",
-                            produktuaId: produktuaId
+                $.ajax({
+                    url: "eragiketak.php",
+                    method: "POST",
+                    data: {
+                        akzioa: "saskira",
+                        produktuaId: produktuaId
+                    }
+                })
+                    .done(function (informazioa) {
+                        if (informazioa == 'ongi') {
+                            alert("<?= trans("saskiratu") ?>");
+                            location.reload();
+                        } else if (informazioa == 'error') {
+                            alert("Error...");
+                        } else if (informazioa == 'dberror') {
+                            alert("dberror")
                         }
                     })
-                        .done(function (informazioa) {
-                            if (informazioa == 'ongi') {
-                                alert("<?= trans("saskiratu") ?>");
-                                location.reload();
-                            } else if (informazioa == 'error') {
-                                alert("Error...");
-                            } else if (informazioa == 'dberror') {
-                                alert("dberror")
-                            }
-                        })
-                        .fail(function () {
-                            alert("Error...")
-                        })
-                        .always(function () {
+                    .fail(function () {
+                        alert("Error...")
+                    })
+                    .always(function () {
 
-                        })
+                    })
 
-                }
+            }
             $(document).ready(function () {
 
                 function hautatutakoBaloreak(name) {
@@ -203,7 +224,7 @@
                     });
                     return baloreak;
                 }
-                
+
 
                 // Función para filtrar productos
                 function produktuakFiltratu() {
@@ -261,7 +282,10 @@
                 $('input[name="prezioa[]"]').change(produktuakFiltratu);
 
                 // Ejecutar el filtrado inicial
-                produktuakFiltratu();
+
+                if ($('.produktuakKat').html().trim() === '') {
+                    produktuakFiltratu();
+                }
 
             });
         </script>

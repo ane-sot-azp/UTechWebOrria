@@ -40,8 +40,9 @@ if (isset($_POST['selectedLang'])) {
                 <div class="menua">
                     <div class="bilatu">
                         <a class="bilatu">
-                            <form action="katalogoa.php" method="GET">
-                                <input type="search" name="query" id="searchInput" placeholder="<?= trans("bilatu...") ?>...">
+                            <form id="bilatu" action="katalogoa.php" method="GET">
+                                <input type="search" name="bilaketa" id="searchInput"
+                                    placeholder="<?= trans("bilatu...") ?>...">
                             </form>
                         </a>
                     </div>
@@ -159,21 +160,26 @@ if (isset($_POST['selectedLang'])) {
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script>
-            function saskiKont(){
-             $.ajax({
-                url: '../src/saskiKont.php',
-                type: 'GET',
-                success: function (data) {
-                    $('#lblCartCount').html(data);
-                },
-                error: function () {
-                    alert('Error al cargar los productos.');
+            document.getElementById('searchInput').addEventListener('keypress', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Evita el comportamiento por defecto del Enter
+                    document.getElementById('bilatu').submit();
                 }
             });
-        }
+            function saskiKont() {
+                $.ajax({
+                    url: '../src/saskiKont.php',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#lblCartCount').html(data);
+                    },
+                    error: function () {
+                        alert('Error al cargar los productos.');
+                    }
+                });
+            }
             function erosi() {
-               
-            
+
                 $.ajax({
                     url: "eragiketak.php",
                     method: "POST",
