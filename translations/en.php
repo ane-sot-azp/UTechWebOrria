@@ -1,16 +1,19 @@
 <?php
 return [
     //HEADER
+    //ERABILTZAILE ORRIKO FUNTZIOEN TRADUKZIOAK EGIN
     "bilatu..."=> "Bilatu",
-    "index"=> "Home page",
+    "index"=> "Hasiera",
     "about"=> "Nor gara",
     "catalogue"=> "Katalogoa",
     "contact"=> "Kontaktua",
     "cart"=> "Saskia",
     "emptyCart"=> "Saskia hutsik dago",
-
+    "noUser"=>"Saioa hasi behar duzu saskia ikusi ahal izateko.",
+    "eroskAlert"=> "Mila esker erosketagatik!",
+    "saskAtera"=>"Produktua saskitik atera da",
     // HASIERA
-    "deskontuIrudia"=> "../public/irudiak\DESKONTUAK\Discounts-01.png",
+    "deskontuIrudia"=> "../public/irudiak\DESKONTUAK\Deskontuak.png",
     "azProd" => "Azken produktuak",
     "noResult" => "Ez da produkturik aurkitu",
     "albTitul" => "Albisteak",
@@ -40,7 +43,7 @@ return [
                     %68ko hazkundea espero dute sektorean aurten eta Euskal Herrian Tecnaliada ikerketa robotikoaren
                     erreferenteetako bat. Ikerketa zentroak Gipuzkoako Zientzia eta Teknolgia Parkean duen egoitzan
                     hartu gaitu Urko Esnaola Tecnaliako robotika-proiektuetarako zuzendariak.",
-    "alb2Alb2" => "'Hiru robot aurkeztu dizkigu Esnaolak: Robotnik enpresarekin batera garatu duten eta aeronautikarako
+    "alb2Alb2" => "THiru robot aurkeztu dizkigu Esnaolak: Robotnik enpresarekin batera garatu duten eta aeronautikarako
                     piezak leuntzen dituen Thomas robota, errealitate birtualeko betaurrekak erabiliz leuntzea
                     automatizatzeko gai den beso robotikoa, eta NextStage, bitrozeramikak era autonomoan eta ahots
                     aginduz muntatzeko gai den humanoidea (baita euskaraz ere).",
@@ -50,6 +53,9 @@ return [
                     arteko komunikazioa erraz dezagun'. 'Aukeraz beteriko' etorkizuna marraztu du Tecnaliako
                     robotika-proiektuetarako zuzendariak: 'Irudimenik aurreratuenak ere ez daki robotika noraino hel
                     litekeen'.",
+    "cookieMezua"=> "Web honek cookiak erabiltzen ditu zure experientzia hobetzeko.",
+    "info"=> "Informazio gehiago",
+    "ok"=> "Onartu!",
     //NOR GARA
     "titleNorGara"=> "Nor gara",
     "historia" => "Historia",
@@ -92,6 +98,7 @@ return [
     "sErag"=> "Sistema eragilea",
     "price"=> "Prezioa",
     "erase"=> "Ezabatu",
+    "saskiratu"=> "Produktua saskira sartu da",
     // KONTAKTUA
     "non"=> "Non gaude?",
     "kontakt"=> "Kontaktua",
@@ -115,6 +122,12 @@ return [
     "newClient"=> "Berria zara? Egin bezero!",
     "nan"=> "NAN",
     "signUp"=> "Erregistratu",
+    "alertPass"=>"Erabiltzailea edo/eta pasahitza ez dira zuzenak.",
+    "alertFalta"=> "Erabiltzaile edo/eta pasahitza hutsik daude.",
+    "ongiEtorri"=>"Ongi etorri!",
+    "error1"=>"Zerbait gaizki joan da. Saiatu berriro beranduago.",
+    "error2"=>"Datuak falta dira erregistroa egin ahal izateko.",
+    "error3"=> "Dagoeneko norbait erregistratu da posta elektroniko honekin.",
     //PRODUKTUA
     "memoria"=> "Memoria",
     "ram"=> "RAM",
@@ -122,6 +135,28 @@ return [
     "kolorea"=> "Kolorea",
     "frek"=> "Frekuentzia",
     "erresol"=> "Erresoluzioa",
+    //ERABILTZAILEA
+    "newProduktua"=> "Funtzionatzen ez duen gailu bat duzu? Bidali zure informazioa!",
+    "ezaugarriak"=> "Ezaugarriak",
+    "ezaugarriakMezua"=> "Idatzi gailuaren ezaugarriak...",
+    "ondo"=> "Ona",
+    "gaizki"=> "Txarra",
+    "egoera"=> "Egoera",
+    "sekz1"=> "Gailuak berrerabili",
+    "sekz2"=> "Zure erosketak",
+    "sekz3"=> "Datuak eguneratu",
+    "aukerak"=> "Menua",
+    "erosketak"=>"Zure erosketak:",
+    "eskEz"=> "Eskaerarik ez dago",
+    "passwordChange"=> "Pasahitza aldatu:",
+    "clientChange"=> "Zure datuak eguneratu:",
+    "alertEgun1"=>"Aldaketak egin dira!",
+    "alertEgun2"=>"Pasahitza aldatu da!",
+    "alertEgun3"=> "Pasahitzak ez dira berdinak!",
+    "alertEgun4"=> "Pasahitza zaharra okerra da!",
+    "alertProd1"=> "Zure mezua bidali da, zurekin kontaktuan mantenduko gara!",
+    "oldpassword"=> "Pasahitza zaharra",
+    "newpassword1"=> "Sartu pasahitza berria",
+    "newpassword2"=> "Mesedez, errepikatu pasahitza berria",
+    "update"=> "Eguneratu",
 ];
-
-// <?= trans("azProd") ?>
