@@ -2,7 +2,7 @@
 if (!isset($_COOKIE['accept_cookies'])) {
     $showCookieBanner = true;
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accept'])) {
-        setcookie('accept_cookies', '1', time() + (86400 * 30), "/"); // Cookie válida por 30 días
+        setcookie('accept_cookies', '1', time() + (86400 * 30), "/");
         $showCookieBanner = false;
     }
 } else {

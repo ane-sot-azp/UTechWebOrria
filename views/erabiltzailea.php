@@ -28,7 +28,7 @@ $conn = konexioaEgin();
         <a onclick="showSection('section2')"><?= trans("sekz2") ?></a>
         <a onclick="showSection('section3')"><?= trans("sekz3") ?></a>
         <form method="post" action="../src/logout.php">
-            <button class="erabBtn" type="submit">Saioa itxi</button>
+            <button class="erabBtn" type="submit"><?= trans("logout") ?></button>
         </form>
     </div>
     <div class="content">
@@ -83,7 +83,7 @@ $conn = konexioaEgin();
                     echo '<div id="eskaera' . $orders[0]["idEskaeraH"] . '" class="eskaera"> ';
                     echo '<table width="100%">';
                     echo '<thead>';
-                    echo '<tr><th>Data</th>';
+                    echo '<tr><th>' . trans("dataEsk") . '</th>';
                     echo '<th></th>';
                     echo '<th>' . trans("markaEsk") . '</th>';
                     echo '<th>' . trans("modeloEsk") . '</th>';
@@ -323,8 +323,6 @@ $conn = konexioaEgin();
             }
         })
             .done(function (informazioa) {
-                console.log("Response:", informazioa); // Debugging
-                alert("Response: " + informazioa); // Show it
                 if (informazioa == 'ongi') {
                     alert("Zure mezua bidali da, zurekin kontaktuan mantenduko gara!");
                     window.location.href = "erabiltzailea.php";

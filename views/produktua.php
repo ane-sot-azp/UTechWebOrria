@@ -35,7 +35,7 @@
     <div class="produktuaHandi">
         <?php
 
-        $sql = "SELECT idProduktua, ProduktuMota_idProduktuMota, irudia1, irudia2, marka, modeloa, memoria, ram, prozesagailua, tamaina, sistemaEragilea, kamara, erresoluzioa, frekuentzia, kolorea, salmentaPrezioa FROM produktua WHERE idProduktua=$idProduktua";
+        $sql = "SELECT * FROM produktua WHERE idProduktua=$idProduktua";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once("eragiketak.php");
 if (isset($_SESSION['izena'])) {
     $first_letter = substr($_SESSION['izena'], 0, 1);
@@ -28,7 +27,7 @@ if (isset($_POST['selectedLang'])) {
 <body>
     <header>
         <?php
-        require_once("../src/translations.php"); //APP_DIR erabilita itzulpenen dokumentua atzitu dugu.
+        require_once("../src/translations.php");
         ?>
         <div class="sticky">
             <div class="navbar">
@@ -70,7 +69,6 @@ if (isset($_POST['selectedLang'])) {
                             <?php
                             $currentLang = isset($_SESSION['_LANGUAGE']) ? $_SESSION['_LANGUAGE'] : 'en';
 
-                            // Muestra la bandera opuesta
                             if ($currentLang == 'en') {
                                 echo '<form method="post">
                             <input type="hidden" name="selectedLang" value="eus">
@@ -91,8 +89,6 @@ if (isset($_POST['selectedLang'])) {
 
                         </div>
 
-                        <!-- <a class="hizkuntza hiz right" href="hasiera_EN.php"><img
-                                src="../public/irudiak/IKONOAK/uk.png"></a> -->
                     </div>
                 </div>
             </div>
@@ -162,7 +158,7 @@ if (isset($_POST['selectedLang'])) {
         <script>
             document.getElementById('searchInput').addEventListener('keypress', function (event) {
                 if (event.key === 'Enter') {
-                    event.preventDefault(); // Evita el comportamiento por defecto del Enter
+                    event.preventDefault();
                     document.getElementById('bilatu').submit();
                 }
             });

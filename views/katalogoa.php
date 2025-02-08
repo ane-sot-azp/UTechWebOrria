@@ -225,8 +225,6 @@
                     return baloreak;
                 }
 
-
-                // Función para filtrar productos
                 function produktuakFiltratu() {
                     var filtroak = {
                         mota: $('#mota').val(),
@@ -250,7 +248,6 @@
                     });
                 }
 
-                // Función para actualizar la lista de productos
                 function produktuZerrendaBirkargatu(produktuak) {
                     var edukia = '';
                     if (produktuak.length === 0) {
@@ -273,15 +270,12 @@
                     $('.produktuakKat').html(edukia);
                 }
 
-                // Event listeners para todos los elementos del filtro
                 $('#mota').change(produktuakFiltratu);
                 $('input[name="marka[]"]').change(produktuakFiltratu);
                 $('input[name="prozesagailua[]"]').change(produktuakFiltratu);
                 $('input[name="tamaina[]"]').change(produktuakFiltratu);
                 $('input[name="sistemaEragilea[]"]').change(produktuakFiltratu);
                 $('input[name="prezioa[]"]').change(produktuakFiltratu);
-
-                // Ejecutar el filtrado inicial
 
                 if ($('.produktuakKat').html().trim() === '') {
                     produktuakFiltratu();
