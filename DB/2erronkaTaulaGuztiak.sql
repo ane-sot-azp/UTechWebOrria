@@ -86,14 +86,14 @@ DROP TABLE IF EXISTS `eskaera`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `eskaera` (
   `idEskaera` int NOT NULL AUTO_INCREMENT,
-  `fraZkia` varchar(8) DEFAULT NULL,
+  `fraZkia` varchar(10) DEFAULT NULL,
   `Bezeroa_idBezeroa` int NOT NULL,
   `totala` double DEFAULT NULL,
   `egoera` varchar(45) DEFAULT NULL,
   `data` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `faktura` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEskaera`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +102,7 @@ CREATE TABLE `eskaera` (
 
 LOCK TABLES `eskaera` WRITE;
 /*!40000 ALTER TABLE `eskaera` DISABLE KEYS */;
+INSERT INTO `eskaera` VALUES (1,'1/2025',36,4234.97,'erosita','2025-02-10 09:08:54',NULL),(2,'2/2025',36,1637,'erosita','2025-02-10 09:18:14',NULL),(3,'3/2025',36,239,'erosita','2025-02-10 09:18:40',NULL);
 /*!40000 ALTER TABLE `eskaera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,13 +143,15 @@ DROP TABLE IF EXISTS `eskaeraproduktua`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `eskaeraproduktua` (
   `idEskaeraproduktua` int NOT NULL AUTO_INCREMENT,
-  `fraZkia` varchar(8) DEFAULT NULL,
+  `fraZkia` varchar(10) DEFAULT NULL,
   `idProduktua` int DEFAULT NULL,
   `kopurua` int DEFAULT NULL,
   `prezioa` double(6,2) DEFAULT NULL,
   `data` date NOT NULL DEFAULT (curdate()),
+  `totala` double DEFAULT ((`kopurua` * `prezioa`)),
+  `idBezeroa` int DEFAULT NULL,
   PRIMARY KEY (`idEskaeraproduktua`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,6 +160,7 @@ CREATE TABLE `eskaeraproduktua` (
 
 LOCK TABLES `eskaeraproduktua` WRITE;
 /*!40000 ALTER TABLE `eskaeraproduktua` DISABLE KEYS */;
+INSERT INTO `eskaeraproduktua` VALUES (1,'1/2025',1,1,498.00,'2025-02-10',498,36),(2,'1/2025',2,2,999.99,'2025-02-10',1999.98,36),(3,'1/2025',3,1,239.00,'2025-02-10',239,36),(4,'1/2025',1,1,498.00,'2025-02-10',498,36),(5,'1/2025',2,1,999.99,'2025-02-10',999.99,36),(6,'2/2025',3,1,239.00,'2025-02-10',239,36),(7,'2/2025',4,2,699.00,'2025-02-10',1398,36),(8,'3/2025',3,1,239.00,'2025-02-10',239,36);
 /*!40000 ALTER TABLE `eskaeraproduktua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,6 +192,31 @@ LOCK TABLES `eskaeraproduktuahistorikoa` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `frabezero`
+--
+
+DROP TABLE IF EXISTS `frabezero`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `frabezero` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idBezero` int DEFAULT NULL,
+  `fraZkia` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `frabezero`
+--
+
+LOCK TABLES `frabezero` WRITE;
+/*!40000 ALTER TABLE `frabezero` DISABLE KEYS */;
+INSERT INTO `frabezero` VALUES (1,36,NULL);
+/*!40000 ALTER TABLE `frabezero` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `frazenbakia`
 --
 
@@ -196,7 +225,7 @@ DROP TABLE IF EXISTS `frazenbakia`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `frazenbakia` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `fraZenbakia` int DEFAULT NULL,
+  `fraZenbakia` varchar(10) DEFAULT NULL,
   `urtea` year DEFAULT (year(curdate())),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -208,7 +237,7 @@ CREATE TABLE `frazenbakia` (
 
 LOCK TABLES `frazenbakia` WRITE;
 /*!40000 ALTER TABLE `frazenbakia` DISABLE KEYS */;
-INSERT INTO `frazenbakia` VALUES (1,0,2025);
+INSERT INTO `frazenbakia` VALUES (1,'4',2025);
 /*!40000 ALTER TABLE `frazenbakia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -433,7 +462,7 @@ CREATE TABLE `produktua` (
 
 LOCK TABLES `produktua` WRITE;
 /*!40000 ALTER TABLE `produktua` DISABLE KEYS */;
-INSERT INTO `produktua` VALUES (1,1,'/ORDENAGAILUAK/1.1.Produktua.png','/ORDENAGAILUAK/1.2.Produktua.png','HP','15-FD0079NS','1TB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,498,10),(2,1,'/ORDENAGAILUAK/2.1.Produktua.png','/ORDENAGAILUAK/2.2.Produktua.png','Apple','MacBook Air Apple M3','256GB','8GB','M3 Apple GPU','15,6','macOS',NULL,NULL,NULL,NULL,999.99,10),(3,1,'/ORDENAGAILUAK/3.1.Produktua.png','/ORDENAGAILUAK/3.2.Produktua.png','Alurin','Go Start N24','256GB','8GB','Intel Celeron','15,6','Windows 10-11',NULL,NULL,NULL,NULL,239,10),(4,1,'/ORDENAGAILUAK/4.1.Produktua.png','/ORDENAGAILUAK/4.2.Produktua.png','Lenovo','IdeaPad Gaming 3 15IAH7','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,699,10),(5,1,'/ORDENAGAILUAK/5.1.Produktua.png','/ORDENAGAILUAK/5.2.Produktua.png','Medion','Erazer Crawler E30e','512GB','8GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,649,10),(6,1,'/ORDENAGAILUAK/6.1.Produktua.png','/ORDENAGAILUAK/6.2.Produktua.png','Asus','TUF Gaming F15 FX506LH-HN042','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,627,10),(7,1,'/ORDENAGAILUAK/7.1.Produktua.png','/ORDENAGAILUAK/7.2.Produktua.png','MSI','Modern 15 B7M-243XES','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,509,10),(8,1,'/ORDENAGAILUAK/8.1.Produktua.png','/ORDENAGAILUAK/8.2.Produktua.png','Acer','Gaming Nitro V 15 ANV15-51','512GB','16GB','Intel Core i7','15,6','Windows 10-11',NULL,NULL,NULL,NULL,859,10),(9,1,'/ORDENAGAILUAK/9.1.Produktua.png','/ORDENAGAILUAK/9.2.Produktua.png','PcCom','Revolt 3050','500GB','16GB','Intel Core i7','15,6','Windows 10-11',NULL,NULL,NULL,NULL,999,10),(10,1,'/ORDENAGAILUAK/10.1.Produktua.png','/ORDENAGAILUAK/10.2.Produktua.png','Dell','Vostro 3520','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,538,10),(11,2,'/MUGIKORRAK/1.1.Produktua.png','/MUGIKORRAK/1.2.Produktua.png','Xiaomi','Redmi Note 13','256GB','8GB','Snapdragon 685 ','6.67','MIUI14','108MP+8MP+2MP ',NULL,NULL,'Urdina',164.94,10),(12,2,'/MUGIKORRAK/2.1.Produktua.png','/MUGIKORRAK/2.2.Produktua.png','Apple','Iphone 13','128GB','4GB','Chip A15 Bionic','6.1','IOS 15','12MP Gran angular eta Ultra gran angular',NULL,NULL,'Txuria',472.52,10),(13,2,'/MUGIKORRAK/3.1.Produktua.png','/MUGIKORRAK/3.2.Produktua.png','Samsung','Galaxy Z FLip6','256GB','12GB','Snapdragon 8 Gen 3','6.7','Android 14','50MP+12MP+10MP',NULL,NULL,'Horia',999.99,10),(14,2,'/MUGIKORRAK/4.1.Produktua.png','/MUGIKORRAK/4.2.Produktua.png','Xiaomi','Redmi Note 13 Pro','256GB','12GB','Snapdragon 7s Gen 2 ','6.67','MIUI14','200MP+8MP+2MP',NULL,NULL,'Beltza',528.99,10),(15,2,'/MUGIKORRAK/5.1.Produktua.png','/MUGIKORRAK/5.2.Produktua.png','Realme','Realme 12 Pro+ 5G','256GB','12GB','Snapdragon 7s Gen 2','6.7','Android 14','50MP+64MP+8MP+32MP',NULL,NULL,'Beige',399,10),(16,2,'/MUGIKORRAK/6.1.Produktua.png','/MUGIKORRAK/6.2.Produktua.png','OnePlus','Nord 4','512GB','16GB','Qualcomm Adreno 732','6.74','OxygenOs 14.1','50MP+8MP+16MP',NULL,NULL,'Oasis Green',519.48,10),(17,2,'/MUGIKORRAK/7.1.Produktua.png','/MUGIKORRAK/7.2.Produktua.png','Samsung','Galaxy Z Fold6','256GB','12GB','Snapdragon 8 Gen 3','7.6','Android 14','50MP+12MP+10MP+4MP+10MP',NULL,NULL,'Arrosa',999.99,10),(18,2,'/MUGIKORRAK/8.1.Produktua.png','/MUGIKORRAK/8.2.Produktua.png','Apple','iPhone 12','256GB','4GB','Chip A14 Bionic','6.1','IOS 14','12MP Gran angular eta Ultra gran angular',NULL,NULL,'Gorria',426,10),(19,2,'/MUGIKORRAK/9.1.Produktua.png','/MUGIKORRAK/9.2.Produktua.png','POCO','X6 Pro 5G','512GB','12GB','Dimensity 8300-Ultra','6.67','MIUI 14','64MP+8MP+2MP+16MP',NULL,NULL,'Horia',323.95,10),(20,2,'/MUGIKORRAK/10.1.Produktua.png','/MUGIKORRAK/10.2.Produktua.png','Realme','12 Pro+ 5G','512GB','12GB','Snapdragon 7s Gen 2','6.7','Android 14','50MP+64MP+8MP+32MP',NULL,NULL,'Urdina',462.72,10),(21,3,'/MONITOREAK/1.1.Produktua.png','/MONITOREAK/1.2.Produktua.png','Alurin','CoreVision 100',NULL,NULL,NULL,'23.8',NULL,'','FHD-IPS','100Hz',NULL,85,10),(22,3,'/MONITOREAK/2.1.Produktua.png','/MONITOREAK/2.2.Produktua.png','MSI','G24C4 E2',NULL,NULL,NULL,'23.6',NULL,'','FullHD-LED','180Hz',NULL,119,10),(23,3,'/MONITOREAK/3.1.Produktua.png','/MONITOREAK/3.2.Produktua.png','LG','32UR550-B',NULL,NULL,NULL,'32',NULL,'','UltraHD 4K-LEV VA','60Hz',NULL,279,10),(24,3,'/MONITOREAK/4.1.Produktua.png','/MONITOREAK/4.2.Produktua.png','Asus','VA24EHF',NULL,NULL,NULL,'23.8',NULL,'','FullHD-LED IPS','100Hz',NULL,89,10),(25,3,'/MONITOREAK/5.1.Produktua.png','/MONITOREAK/5.2.Produktua.png','AOC','CQ32G2SE',NULL,NULL,NULL,'31.5',NULL,'','QuadHD-LED','165Hz',NULL,199,10),(26,4,'/AURIKULARRAK/1.1.Produktua.png','/AURIKULARRAK/1.2.Produktua.png','Apple','Airpods 4',NULL,NULL,'Chip H2','3,02x1,83x1,81cm',NULL,NULL,NULL,NULL,'Txuria',149,10),(27,4,'/AURIKULARRAK/2.1.Produktua.png','/AURIKULARRAK/2.2.Produktua.png','Apple','AirPods 2ª generación',NULL,NULL,'Chip H2','4,43x2,13x5,35 cm',NULL,NULL,NULL,NULL,'Txuria',94,10),(28,4,'/AURIKULARRAK/3.1.Produktua.png','/AURIKULARRAK/3.2.Produktua.png','Apple','AirPods 3ª generación',NULL,NULL,'Chip H2','5,44 x 2,13 x 4,64 cm',NULL,NULL,NULL,NULL,'Txuria',125.4,10),(29,4,'/AURIKULARRAK/4.1.Produktua.png','/AURIKULARRAK/4.2.Produktua.png','Apple','Airpods Max',NULL,NULL,'Chip H1','3,02x1,83x1,81cm',NULL,NULL,NULL,NULL,'Txuria',403.99,10),(30,4,'/AURIKULARRAK/5.1.Produktua.png','/AURIKULARRAK/5.2.Produktua.png','Apple','AirPods Pro 2ª generación',NULL,NULL,'Chip H2','3,09x2,18x2,4cm',NULL,NULL,NULL,NULL,'Txuria',223.99,10);
+INSERT INTO `produktua` VALUES (1,1,'/ORDENAGAILUAK/1.1.Produktua.png','/ORDENAGAILUAK/1.2.Produktua.png','HP','15-FD0079NS','1TB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,498,8),(2,1,'/ORDENAGAILUAK/2.1.Produktua.png','/ORDENAGAILUAK/2.2.Produktua.png','Apple','MacBook Air Apple M3','256GB','8GB','M3 Apple GPU','15,6','macOS',NULL,NULL,NULL,NULL,999.99,7),(3,1,'/ORDENAGAILUAK/3.1.Produktua.png','/ORDENAGAILUAK/3.2.Produktua.png','Alurin','Go Start N24','256GB','8GB','Intel Celeron','15,6','Windows 10-11',NULL,NULL,NULL,NULL,239,7),(4,1,'/ORDENAGAILUAK/4.1.Produktua.png','/ORDENAGAILUAK/4.2.Produktua.png','Lenovo','IdeaPad Gaming 3 15IAH7','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,699,8),(5,1,'/ORDENAGAILUAK/5.1.Produktua.png','/ORDENAGAILUAK/5.2.Produktua.png','Medion','Erazer Crawler E30e','512GB','8GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,649,10),(6,1,'/ORDENAGAILUAK/6.1.Produktua.png','/ORDENAGAILUAK/6.2.Produktua.png','Asus','TUF Gaming F15 FX506LH-HN042','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,627,10),(7,1,'/ORDENAGAILUAK/7.1.Produktua.png','/ORDENAGAILUAK/7.2.Produktua.png','MSI','Modern 15 B7M-243XES','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,509,10),(8,1,'/ORDENAGAILUAK/8.1.Produktua.png','/ORDENAGAILUAK/8.2.Produktua.png','Acer','Gaming Nitro V 15 ANV15-51','512GB','16GB','Intel Core i7','15,6','Windows 10-11',NULL,NULL,NULL,NULL,859,10),(9,1,'/ORDENAGAILUAK/9.1.Produktua.png','/ORDENAGAILUAK/9.2.Produktua.png','PcCom','Revolt 3050','500GB','16GB','Intel Core i7','15,6','Windows 10-11',NULL,NULL,NULL,NULL,999,10),(10,1,'/ORDENAGAILUAK/10.1.Produktua.png','/ORDENAGAILUAK/10.2.Produktua.png','Dell','Vostro 3520','512GB','16GB','Intel Core i5','15,6','Windows 10-11',NULL,NULL,NULL,NULL,538,10),(11,2,'/MUGIKORRAK/1.1.Produktua.png','/MUGIKORRAK/1.2.Produktua.png','Xiaomi','Redmi Note 13','256GB','8GB','Snapdragon 685 ','6.67','MIUI14','108MP+8MP+2MP ',NULL,NULL,'Urdina',164.94,10),(12,2,'/MUGIKORRAK/2.1.Produktua.png','/MUGIKORRAK/2.2.Produktua.png','Apple','Iphone 13','128GB','4GB','Chip A15 Bionic','6.1','IOS 15','12MP Gran angular eta Ultra gran angular',NULL,NULL,'Txuria',472.52,10),(13,2,'/MUGIKORRAK/3.1.Produktua.png','/MUGIKORRAK/3.2.Produktua.png','Samsung','Galaxy Z FLip6','256GB','12GB','Snapdragon 8 Gen 3','6.7','Android 14','50MP+12MP+10MP',NULL,NULL,'Horia',999.99,10),(14,2,'/MUGIKORRAK/4.1.Produktua.png','/MUGIKORRAK/4.2.Produktua.png','Xiaomi','Redmi Note 13 Pro','256GB','12GB','Snapdragon 7s Gen 2 ','6.67','MIUI14','200MP+8MP+2MP',NULL,NULL,'Beltza',528.99,10),(15,2,'/MUGIKORRAK/5.1.Produktua.png','/MUGIKORRAK/5.2.Produktua.png','Realme','Realme 12 Pro+ 5G','256GB','12GB','Snapdragon 7s Gen 2','6.7','Android 14','50MP+64MP+8MP+32MP',NULL,NULL,'Beige',399,10),(16,2,'/MUGIKORRAK/6.1.Produktua.png','/MUGIKORRAK/6.2.Produktua.png','OnePlus','Nord 4','512GB','16GB','Qualcomm Adreno 732','6.74','OxygenOs 14.1','50MP+8MP+16MP',NULL,NULL,'Oasis Green',519.48,10),(17,2,'/MUGIKORRAK/7.1.Produktua.png','/MUGIKORRAK/7.2.Produktua.png','Samsung','Galaxy Z Fold6','256GB','12GB','Snapdragon 8 Gen 3','7.6','Android 14','50MP+12MP+10MP+4MP+10MP',NULL,NULL,'Arrosa',999.99,10),(18,2,'/MUGIKORRAK/8.1.Produktua.png','/MUGIKORRAK/8.2.Produktua.png','Apple','iPhone 12','256GB','4GB','Chip A14 Bionic','6.1','IOS 14','12MP Gran angular eta Ultra gran angular',NULL,NULL,'Gorria',426,10),(19,2,'/MUGIKORRAK/9.1.Produktua.png','/MUGIKORRAK/9.2.Produktua.png','POCO','X6 Pro 5G','512GB','12GB','Dimensity 8300-Ultra','6.67','MIUI 14','64MP+8MP+2MP+16MP',NULL,NULL,'Horia',323.95,10),(20,2,'/MUGIKORRAK/10.1.Produktua.png','/MUGIKORRAK/10.2.Produktua.png','Realme','12 Pro+ 5G','512GB','12GB','Snapdragon 7s Gen 2','6.7','Android 14','50MP+64MP+8MP+32MP',NULL,NULL,'Urdina',462.72,10),(21,3,'/MONITOREAK/1.1.Produktua.png','/MONITOREAK/1.2.Produktua.png','Alurin','CoreVision 100',NULL,NULL,NULL,'23.8',NULL,'','FHD-IPS','100Hz',NULL,85,10),(22,3,'/MONITOREAK/2.1.Produktua.png','/MONITOREAK/2.2.Produktua.png','MSI','G24C4 E2',NULL,NULL,NULL,'23.6',NULL,'','FullHD-LED','180Hz',NULL,119,10),(23,3,'/MONITOREAK/3.1.Produktua.png','/MONITOREAK/3.2.Produktua.png','LG','32UR550-B',NULL,NULL,NULL,'32',NULL,'','UltraHD 4K-LEV VA','60Hz',NULL,279,10),(24,3,'/MONITOREAK/4.1.Produktua.png','/MONITOREAK/4.2.Produktua.png','Asus','VA24EHF',NULL,NULL,NULL,'23.8',NULL,'','FullHD-LED IPS','100Hz',NULL,89,10),(25,3,'/MONITOREAK/5.1.Produktua.png','/MONITOREAK/5.2.Produktua.png','AOC','CQ32G2SE',NULL,NULL,NULL,'31.5',NULL,'','QuadHD-LED','165Hz',NULL,199,10),(26,4,'/AURIKULARRAK/1.1.Produktua.png','/AURIKULARRAK/1.2.Produktua.png','Apple','Airpods 4',NULL,NULL,'Chip H2','3,02x1,83x1,81cm',NULL,NULL,NULL,NULL,'Txuria',149,10),(27,4,'/AURIKULARRAK/2.1.Produktua.png','/AURIKULARRAK/2.2.Produktua.png','Apple','AirPods 2ª generación',NULL,NULL,'Chip H2','4,43x2,13x5,35 cm',NULL,NULL,NULL,NULL,'Txuria',94,10),(28,4,'/AURIKULARRAK/3.1.Produktua.png','/AURIKULARRAK/3.2.Produktua.png','Apple','AirPods 3ª generación',NULL,NULL,'Chip H2','5,44 x 2,13 x 4,64 cm',NULL,NULL,NULL,NULL,'Txuria',125.4,10),(29,4,'/AURIKULARRAK/4.1.Produktua.png','/AURIKULARRAK/4.2.Produktua.png','Apple','Airpods Max',NULL,NULL,'Chip H1','3,02x1,83x1,81cm',NULL,NULL,NULL,NULL,'Txuria',403.99,10),(30,4,'/AURIKULARRAK/5.1.Produktua.png','/AURIKULARRAK/5.2.Produktua.png','Apple','AirPods Pro 2ª generación',NULL,NULL,'Chip H2','3,09x2,18x2,4cm',NULL,NULL,NULL,NULL,'Txuria',223.99,10);
 /*!40000 ALTER TABLE `produktua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -476,12 +505,13 @@ CREATE TABLE `saskia` (
   `prezioa` double DEFAULT NULL,
   `egoera` varchar(45) DEFAULT NULL,
   `data` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `totala` double GENERATED ALWAYS AS ((`kopurua` * `prezioa`)) STORED,
   PRIMARY KEY (`idSaskia`),
   KEY `fk_Bezeroa_has_Produktua_Produktua2_idx` (`Produktua_idProduktua`),
   KEY `fk_Bezeroa_has_Produktua_Bezeroa2_idx` (`Bezeroa_idBezeroa`),
   CONSTRAINT `fk_Bezeroa_has_Produktua_Bezeroa2` FOREIGN KEY (`Bezeroa_idBezeroa`) REFERENCES `bezeroa` (`idBezeroa`) ON UPDATE CASCADE,
   CONSTRAINT `fk_Bezeroa_has_Produktua_Produktua2` FOREIGN KEY (`Produktua_idProduktua`) REFERENCES `produktua` (`idProduktua`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -490,7 +520,6 @@ CREATE TABLE `saskia` (
 
 LOCK TABLES `saskia` WRITE;
 /*!40000 ALTER TABLE `saskia` DISABLE KEYS */;
-INSERT INTO `saskia` VALUES (1,36,2,1,999.99,'saskian','2025-02-09 09:29:59'),(2,36,3,1,239,'saskian','2025-02-09 09:30:18'),(3,36,1,1,498,'saskian','2025-02-09 09:31:07');
 /*!40000 ALTER TABLE `saskia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -503,4 +532,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-09 10:34:51
+-- Dump completed on 2025-02-10 10:24:45

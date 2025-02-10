@@ -224,6 +224,8 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
     }
     $sql2 = "UPDATE saskia SET egoera = 'erosita' WHERE Bezeroa_idBezeroa = $id";
     $result2 = $conn->query($sql2);
+    $sql4="UPDATE frazenbakia SET fraZenbakia = fraZenbakia+1 WHERE id=1";
+    $result4 = $conn->query($sql4);
     $sql = "DELETE FROM saskia WHERE Bezeroa_idBezeroa = $id";
     $result = $conn->query($sql);
     if ($result == true && $result1 == true && $result2 == true) {
