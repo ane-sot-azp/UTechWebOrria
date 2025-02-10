@@ -159,6 +159,7 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
 } else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "saskira") {
     $conn = konexioaEgin();
     $idProduktua = $_POST['produktuaId'];
+    if (isset($_SESSION['id'])) {
     $idBezeroa = $_SESSION['id'];
     $sql1 = "SELECT * FROM saskia WHERE Bezeroa_idBezeroa = $idBezeroa AND Produktua_idProduktua = $idProduktua";
     $result1 = $conn->query($sql1);
@@ -181,6 +182,9 @@ if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "loginaEgin") {
             echo 'error';
         }
     }
+}else if (!isset($_SESSION['id'])) {
+    echo 'login';
+}
     $conn->close();
 } else if (isset($_POST["akzioa"]) && $_POST["akzioa"] == "saskitikAtera") {
     $conn = konexioaEgin();

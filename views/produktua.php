@@ -106,7 +106,10 @@
                                 alert("Error...");
                             } else if (informazioa == 'dberror') {
                                 alert("dberror")
-                            }
+                            }else if (informazioa == 'login') {
+                            alert("Logina egin behar duzu erosi ahal izateko!");
+                            window.location.href = "login.php";
+                        }
                         })
                         .fail(function () {
                             alert("Error...")
