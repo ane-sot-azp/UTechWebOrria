@@ -118,74 +118,75 @@ $conn = konexioaEgin();
                     echo '<h5>' . trans("eskEz") . '</h5>';
                 }
                 ?>
-                <div id="section3" class="section">
-                    <div id="section3Kont">
-                        <form class="eguneratu" id="bezeroAldaketa" method="POST" action="">
-                            <h2 class="egunTitul"><?= trans("clientChange") ?></h2>
-                            <?php
-                            $conn = konexioaEgin();
-                            if (!$conn) {
-                                echo "dberror";
-                            }
-                            $id = $_SESSION['id'];
-                            $sql = "SELECT * FROM bezeroa WHERE idBezeroa='$id'";
-                            $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    $izena = $row["izena"];
-                                    $abizena = $row["abizena"];
-                                    $nan = $row["nanEdoNif"];
-                                    $postaElektronikoa = $row["postaElektronikoa"];
-                                    $telefonoZenbakia = $row["telefonoZenbakia"];
-                                    $helbidea = $row["helbidea"];
-                                    $herria = $row["herria"];
-                                    $postaKodea = $row["postaKodea"];
-                                }
-                            }
-                            echo '<label for="izena">' . trans("izena") . ':</label><br>';
-                            echo '<input type="text" id="izena" name="izena" value="' . $izena . '" required><br>';
-
-                            echo '<label for="abizena">' . trans("abizena") . ':</label><br>';
-                            echo '<input type="text" id="abizena" name="abizena" value="' . $abizena . '"
-                    required><br>';
-                            echo '<label for="nan">' . trans("nan") . ':</label><br>';
-                            echo '<input type="text" id="nan" name="nan" value="' . $nan . '"
-                    required><br>';
-                            echo '<label for="postaElektronikoa">' . trans("email") . ':</label><br>';
-                            echo '<input type="email" id="postaElektronikoa" name="postaElektronikoa"
-                    value="' . $postaElektronikoa . '" required><br>';
-                            echo '<label for="telefonoZenbakia">' . trans("tel") . ':</label><br>';
-                            echo '<input type="tel" id="telefonoZenbakia" name="telefonoZenbakia"
-                    value="' . $telefonoZenbakia . '"><br>';
-                            echo '<label for="helbidea">' . trans("helbide") . ':</label><br>';
-                            echo '<input type="text" id="helbidea" name="helbidea"
-                    value="' . $helbidea . '"><br>';
-                            echo '<label for="herria">' . trans("herria") . ':</label><br>';
-                            echo '<input type="text" id="herria" name="herria"
-                    value="' . $herria . '"><br>';
-                            echo '<label for="postaKodea">' . trans("PK") . ':</label><br>';
-                            echo '<input type="text" id="postaKodea" name="postaKodea"
-                    value="' . $postaKodea . '"><br>';
-                            echo '<input class="erabBtn eguneraketa" type="submit" value="' . trans("update") . '"></input>';
-
-                            echo '</form>';
-                            echo '<form class="eguneratu" id="pasahitzaAldaketa" method="POST" action="">';
-                            echo '<h2 class="egunTitul">' . trans("passwordChange") . '</h2>';
-                            echo '<label for="pasahitzaold">' . trans("oldpassword") . ':<span class="required">*</span></label>';
-                            echo '<input type="password" id="pasahitzaold" name="pasahitzaold" required><br>';
-                            echo '<label for="pasahitza2">' . trans("newpassword1") . ':<span class="required">*</span></label>';
-                            echo '<input type="password" id="pasahitza2" name="pasahitza2" required><br>';
-                            echo '<label for="pasahitza22">' . trans("newpassword2") . ':<span class="required">*</span></label>';
-                            echo '<input type="password" id="pasahitza22" name="pasahitza22" required><br>';
-                            echo '<input class="erabBtn pasahitzaEgun" type="submit" value="' . trans("update") . '"></input>';
-                            ?>
-
-                        </form>
-                    </div>
-                </div>
             </div>
 
         </div>
+        <div id="section3" class="section">
+            <div id="section3Kont">
+                <form class="eguneratu" id="bezeroAldaketa" method="POST" action="">
+                    <h2 class="egunTitul"><?= trans("clientChange") ?></h2>
+                    <?php
+                    $conn = konexioaEgin();
+                    if (!$conn) {
+                        echo "dberror";
+                    }
+                    $id = $_SESSION['id'];
+                    $sql = "SELECT * FROM bezeroa WHERE idBezeroa='$id'";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $izena = $row["izena"];
+                            $abizena = $row["abizena"];
+                            $nan = $row["nanEdoNif"];
+                            $postaElektronikoa = $row["postaElektronikoa"];
+                            $telefonoZenbakia = $row["telefonoZenbakia"];
+                            $helbidea = $row["helbidea"];
+                            $herria = $row["herria"];
+                            $postaKodea = $row["postaKodea"];
+                        }
+                    }
+                    echo '<label for="izena">' . trans("izena") . ':</label><br>';
+                    echo '<input type="text" id="izena" name="izena" value="' . $izena . '" required><br>';
+
+                    echo '<label for="abizena">' . trans("abizena") . ':</label><br>';
+                    echo '<input type="text" id="abizena" name="abizena" value="' . $abizena . '"
+                    required><br>';
+                    echo '<label for="nan">' . trans("nan") . ':</label><br>';
+                    echo '<input type="text" id="nan" name="nan" value="' . $nan . '"
+                    required><br>';
+                    echo '<label for="postaElektronikoa">' . trans("email") . ':</label><br>';
+                    echo '<input type="email" id="postaElektronikoa" name="postaElektronikoa"
+                    value="' . $postaElektronikoa . '" required><br>';
+                    echo '<label for="telefonoZenbakia">' . trans("tel") . ':</label><br>';
+                    echo '<input type="tel" id="telefonoZenbakia" name="telefonoZenbakia"
+                    value="' . $telefonoZenbakia . '"><br>';
+                    echo '<label for="helbidea">' . trans("helbide") . ':</label><br>';
+                    echo '<input type="text" id="helbidea" name="helbidea"
+                    value="' . $helbidea . '"><br>';
+                    echo '<label for="herria">' . trans("herria") . ':</label><br>';
+                    echo '<input type="text" id="herria" name="herria"
+                    value="' . $herria . '"><br>';
+                    echo '<label for="postaKodea">' . trans("PK") . ':</label><br>';
+                    echo '<input type="text" id="postaKodea" name="postaKodea"
+                    value="' . $postaKodea . '"><br>';
+                    echo '<input class="erabBtn eguneraketa" type="submit" value="' . trans("update") . '"></input>';
+
+                    echo '</form>';
+                    echo '<form class="eguneratu" id="pasahitzaAldaketa" method="POST" action="">';
+                    echo '<h2 class="egunTitul">' . trans("passwordChange") . '</h2>';
+                    echo '<label for="pasahitzaold">' . trans("oldpassword") . ':<span class="required">*</span></label>';
+                    echo '<input type="password" id="pasahitzaold" name="pasahitzaold" required><br>';
+                    echo '<label for="pasahitza2">' . trans("newpassword1") . ':<span class="required">*</span></label>';
+                    echo '<input type="password" id="pasahitza2" name="pasahitza2" required><br>';
+                    echo '<label for="pasahitza22">' . trans("newpassword2") . ':<span class="required">*</span></label>';
+                    echo '<input type="password" id="pasahitza22" name="pasahitza22" required><br>';
+                    echo '<input class="erabBtn pasahitzaEgun" type="submit" value="' . trans("update") . '"></input>';
+                    ?>
+
+                </form>
+            </div>
+        </div>
+
 
         <script>
             function openNav() {
