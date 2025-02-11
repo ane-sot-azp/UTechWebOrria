@@ -72,11 +72,12 @@ $conn = konexioaEgin();
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo '<div id="eskaera' . $row["idEskaera"] . '" class="eskaera"> ';
+                        echo '<div id="eskaera' . $row["idEskaera"] . '" class="eskaerak"> ';
                         echo '<table class="eskaerak" width="100%">';
                         echo '<thead>';
                         echo '<tr><th colspan="2">' . trans("dataEsk") . ' ' . $row["data"] . '</th>';
-                        echo '<th colspan="2">' . trans("frazkiaesk") . ' ' . $row["fraZkia"] . '</th>';
+                        echo '<th>' . trans("frazkiaesk") . ' ' . $row["fraZkia"] . '</th>';
+                        echo '<th>' . trans("egoera") . ' ' . $row["egoera"] . '</th>';
                         echo '<th>' . trans("totalaEsk") . ' ' . $row["totala"] . ' €</th>';
                         echo '<th>' . trans("faktura") . '<a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
 

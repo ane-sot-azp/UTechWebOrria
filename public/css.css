@@ -957,6 +957,16 @@ div.produktuaHandi div.produktuaIrudia a img {
     height: 18px;
     padding: 0;
   }
+  .eskaerak table{
+    width: 90%;
+  }
+  .eskaerak th, .eskaerak td{
+    width: 100px;
+    line-height: 40px;
+  }
+  .eskaerak th{
+    border-bottom: 3px solid var(--urdinIluna);
+  }
 }
 /* Botones y textos */
 input.botoiak,
