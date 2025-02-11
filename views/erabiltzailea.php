@@ -72,14 +72,15 @@ $conn = konexioaEgin();
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
+                        $data = substr($row["data"], 0, 10);
                         echo '<div id="eskaera' . $row["idEskaera"] . '" class="eskaerak"> ';
                         echo '<table class="eskaerak" width="100%">';
                         echo '<thead>';
-                        echo '<tr><th colspan="2">' . trans("dataEsk") . ' ' . $row["data"] . '</th>';
-                        echo '<th>' . trans("frazkiaesk") . ' ' . $row["fraZkia"] . '</th>';
-                        echo '<th>' . trans("egoera") . ' ' . $row["egoera"] . '</th>';
-                        echo '<th>' . trans("totalaEsk") . ' ' . $row["totala"] . ' €</th>';
-                        echo '<th>' . trans("faktura") . '<a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        echo '<tr><th colspan="2"><b>' . trans("dataEsk") . ':</b><br>' . $data . '</th>';
+                        echo '<th><b>' . trans("frazkiaesk") . '</b><br>' . $row["fraZkia"] . '</th>';
+                        echo '<th><b>' . trans("egoera") . '</b><br>' . $row["egoera"] . '</th>';
+                        echo '<th><b>' . trans("totalaEsk") . '</b><br>' . $row["totala"] . ' €</th>';
+                        echo '<th><b>' . trans("faktura") . '</b><br><a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
 
                         echo '</tr></thead><tbody>';
                         $sql1 = "SELECT idProduktua, kopurua, prezioa, data FROM eskaeraproduktua WHERE fraZkia='" . $row["fraZkia"] . "'";
