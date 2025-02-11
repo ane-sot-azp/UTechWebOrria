@@ -70,56 +70,43 @@ $conn = konexioaEgin();
                 $id = $_SESSION['id'];
                 $sql = "SELECT idEskaera, fraZkia, totala, egoera, data, faktura FROM eskaera WHERE Bezeroa_idBezeroa=$id ORDER BY data DESC";
                 $result = $conn->query($sql);
-                $orders = [];
-
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        $orders[] = $row;
-                        $dataa = substr($orders[0]["data"], 0, 10);
-                    }
-                }
+                        echo '<div id="eskaera' . $row["idEskaera"] . '" class="eskaera"> ';
+                        echo '<table class="eskaerak" width="100%">';
+                        echo '<thead>';
+                        echo '<tr><th colspan="2">' . trans("dataEsk") . ' ' . $row["data"] . '</th>';
+                        echo '<th colspan="2">' . trans("frazkiaesk") . ' ' . $row["fraZkia"] . '</th>';
+                        echo '<th>' . trans("totalaEsk") . ' ' . $row["totala"] . ' €</th>';
+                        echo '<th>' . trans("faktura") . '<a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
 
-                if (!empty($orders)) {
-                    echo '<div id="eskaera' . $orders[0]["idEskaera"] . '" class="eskaera"> ';
-                    echo '<table width="100%">';
-                    echo '<thead>';
-                    echo '<tr><th>' . trans("dataEsk") . '</th>';
-                    echo '<th></th>';
-                    echo '<th>' . trans("markaEsk") . '</th>';
-                    echo '<th>' . trans("modeloEsk") . '</th>';
-                    echo '<th>' . trans("kopuruEsk") . '</th>';
-                    echo '<th>' . trans("prezioaEsk") . '</th>';
-                    echo '</tr></thead><tbody>';
-
-                    foreach ($orders as $order) {
-                        $sql1 = "SELECT idEskaeraproduktua, idProduktua, kopurua, prezioa, data, totala FROM eskaeraproduktua WHERE fraZkia='" . $order["fraZkia"] . "'";
+                        echo '</tr></thead><tbody>';
+                        $sql1 = "SELECT idProduktua, kopurua, prezioa, data FROM eskaeraproduktua WHERE fraZkia='" . $row["fraZkia"] . "'";
                         $result1 = $conn->query($sql1);
                         if ($result1->num_rows > 0) {
-                            while ($productOrder = $result1->fetch_assoc()) {
-                                $sql2 = "SELECT marka, modeloa, irudia1 FROM produktua WHERE idProduktua=" . $productOrder["idProduktua"];
+                            while ($row1 = $result1->fetch_assoc()) {
+                                $sql2 = "SELECT idProduktua, marka, modeloa, irudia1 FROM produktua WHERE idProduktua=" . $row1["idProduktua"];
                                 $result2 = $conn->query($sql2);
                                 if ($result2->num_rows > 0) {
-                                    $product = $result2->fetch_assoc();
-                                    echo '<tr>';
-                                    echo '<td>' . $dataa . '</td>';
-                                    echo '<td><a href="produktua.php?produktuid=' . $productOrder["idProduktua"] . '"><img src="../public/irudiak/PRODUKTUAK' . $product["irudia1"] . '" alt="produktua" width="100px" height="100px"></a></td>';
-                                    echo '<td>' . $product["marka"] . '</td>';
-                                    echo '<td>' . $product["modeloa"] . '</td>';
-                                    echo '<td>' . $productOrder["kopurua"] . '</td>';
-                                    echo '<td>' . $productOrder["prezioa"] . ' €</td>';
-                                    echo '</tr>';
+                                    while ($row2 = $result2->fetch_assoc()) {
+                                        echo '<tr>';
+                                        echo '<td> </td>';
+                                        echo '<td><a href="produktua.php?produktuid=' . $row2["idProduktua"] . '"><img src="../public/irudiak/PRODUKTUAK' . $row2["irudia1"] . '" alt="produktua" width="100px" height="100px"></a></td>';
+                                        echo '<td>' . $row2["marka"] . '</td>';
+                                        echo '<td>' . $row2["modeloa"] . '</td>';
+                                        echo '<td>' . $row1["kopurua"] . '</td>';
+                                        echo '<td>' . $row1["prezioa"] . ' €</td>';
+                                        echo '</tr>';
+                                    }
                                 }
                             }
                         }
+                        echo '</tbody></table>';
+                        echo '</div>';
                     }
-                    echo '</tbody></table>';
-                    echo '</div>';
-                } else {
-                    echo '<h5>' . trans("eskEz") . '</h5>';
                 }
                 ?>
             </div>
-
         </div>
         <div id="section3" class="section">
             <div id="section3Kont">

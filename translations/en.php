@@ -162,7 +162,7 @@ return [
     "update" => "Eguneratu",
     "dataEsk"=> "Data",
     "markaEsk" => "Marka",
-    "modeloEsk"=> "Modeloa",
+    "frazkiaesk"=> "Modeloa",
     "kopuruEsk"=> "Kopurua",
-    "prezioaEsk"=> "Prezioa/u", //Prezioa unitateko
+    "totalaEsk"=> "Prezioa/u", //Prezioa unitateko
 ];

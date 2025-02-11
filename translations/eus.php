@@ -145,7 +145,7 @@ return [
     "sekz1" => "Gailuak berrerabili",
     "sekz2" => "Zure erosketak",
     "sekz3" => "Datuak eguneratu",
-    "logout"=> "Saioa itxi",
+    "logout" => "Saioa itxi",
     "aukerak" => "Menua",
     "erosketak" => "Zure erosketak:",
     "eskEz" => "Eskaerarik ez dago",
@@ -160,9 +160,10 @@ return [
     "newpassword1" => "Sartu pasahitza berria",
     "newpassword2" => "Mesedez, errepikatu pasahitza berria",
     "update" => "Eguneratu",
-    "dataEsk"=> "Data",
+    "dataEsk" => "Data",
     "markaEsk" => "Marka",
-    "modeloEsk"=> "Modeloa",
-    "kopuruEsk"=> "Kopurua",
-    "prezioaEsk"=> "Prezioa/u", //Prezioa unitateko
+    "frazkiaesk" => "Faktura zenbakia:",
+    "kopuruEsk" => "Kopurua",
+    "faktura" => "Faktura:",
+    "totalaEsk" => "Totala:", //Prezioa unitateko
 ];

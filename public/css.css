@@ -766,6 +766,12 @@ div.produktuaHandi div.produktuaIrudia a img {
 .erabBtn:hover{
   background-color: var(--urdina);
 }
+.eskaerak th, .eskaerak td{
+  width: 100px;
+}
+.eskaerak th{
+  border-bottom: 3px solid var(--urdinIluna);
+}
 
 @media (max-width: 480px) {
   /* Navbar */
