@@ -43,7 +43,7 @@ return [
                     %68ko hazkundea espero dute sektorean aurten eta Euskal Herrian Tecnaliada ikerketa robotikoaren
                     erreferenteetako bat. Ikerketa zentroak Gipuzkoako Zientzia eta Teknolgia Parkean duen egoitzan
                     hartu gaitu Urko Esnaola Tecnaliako robotika-proiektuetarako zuzendariak.",
-    "alb2Alb2" => "THiru robot aurkeztu dizkigu Esnaolak: Robotnik enpresarekin batera garatu duten eta aeronautikarako
+    "alb2Alb2" => "Hiru robot aurkeztu dizkigu Esnaolak: Robotnik enpresarekin batera garatu duten eta aeronautikarako
                     piezak leuntzen dituen Thomas robota, errealitate birtualeko betaurrekak erabiliz leuntzea
                     automatizatzeko gai den beso robotikoa, eta NextStage, bitrozeramikak era autonomoan eta ahots
                     aginduz muntatzeko gai den humanoidea (baita euskaraz ere).",
@@ -141,16 +141,16 @@ return [
     "ezaugarriakMezua" => "Idatzi gailuaren ezaugarriak...",
     "ondo" => "Ona",
     "gaizki" => "Txarra",
-    "egoera" => "Egoera:",
+    "egoera" => "Egoera",
     "sekz1" => "Gailuak berrerabili",
     "sekz2" => "Zure erosketak",
     "sekz3" => "Datuak eguneratu",
     "logout" => "Saioa itxi",
     "aukerak" => "Menua",
-    "erosketak" => "Zure erosketak:",
+    "erosketak" => "Zure erosketak",
     "eskEz" => "Eskaerarik ez dago oraindik.",
-    "passwordChange" => "Pasahitza aldatu:",
-    "clientChange" => "Zure datuak eguneratu:",
+    "passwordChange" => "Pasahitza aldatu",
+    "clientChange" => "Zure datuak eguneratu",
     "alertEgun1" => "Aldaketak egin dira!",
     "alertEgun2" => "Pasahitza aldatu da!",
     "alertEgun3" => "Pasahitzak ez dira berdinak!",
@@ -162,8 +162,8 @@ return [
     "update" => "Eguneratu",
     "dataEsk" => "Data",
     "markaEsk" => "Marka",
-    "frazkiaesk" => "Faktura zenbakia:",
+    "frazkiaesk" => "Faktura zenbakia",
     "kopuruEsk" => "Kopurua",
-    "faktura" => "Faktura:",
-    "totalaEsk" => "Totala:", //Prezioa unitateko
+    "faktura" => "Faktura",
+    "totalaEsk" => "Totala",
 ];

@@ -48,7 +48,7 @@ $conn = konexioaEgin();
                 <input class="kont" type="text" name="marka" id="marka" required /><br>
                 <label for="modeloa"><?= trans("made") ?>:</label><span class="required">*</span><br>
                 <input class="kont" type="modeloa" name="modeloa" id="modeloa" required /><br>
-                <label for="ezaugarriak"><?= trans("ezaugarriak") ?></label><span class="required">*</span><br>
+                <label for="ezaugarriak"><?= trans("ezaugarriak") ?>:</label><span class="required">*</span><br>
                 <textarea class="kont" name="ezaugarriak" id="ezaugarriak"
                     placeholder="<?= trans("ezaugarriakMezua") ?>" required></textarea>
                 <label for="egoera"><?= trans("egoera") ?>:</label><span class="required">*</span><br>
@@ -77,10 +77,10 @@ $conn = konexioaEgin();
                         echo '<table class="eskaerak" width="100%">';
                         echo '<thead>';
                         echo '<tr><th colspan="2"><b>' . trans("dataEsk") . ':</b><br>' . $data . '</th>';
-                        echo '<th><b>' . trans("frazkiaesk") . '</b><br>' . $row["fraZkia"] . '</th>';
-                        echo '<th><b>' . trans("egoera") . '</b><br>' . $row["egoera"] . '</th>';
-                        echo '<th><b>' . trans("totalaEsk") . '</b><br>' . $row["totala"] . ' €</th>';
-                        echo '<th><b>' . trans("faktura") . '</b><br><a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        echo '<th><b>' . trans("frazkiaesk") . ':</b><br>' . $row["fraZkia"] . '</th>';
+                        echo '<th><b>' . trans("egoera") . ':</b><br>' . $row["egoera"] . '</th>';
+                        echo '<th><b>' . trans("totalaEsk") . ':</b><br>' . $row["totala"] . ' €</th>';
+                        echo '<th><b>' . trans("faktura") . ':</b><br><a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
 
                         echo '</tr></thead><tbody>';
                         $sql1 = "SELECT idProduktua, kopurua, prezioa, data FROM eskaeraproduktua WHERE fraZkia='" . $row["fraZkia"] . "'";

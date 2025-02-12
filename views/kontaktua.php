@@ -26,15 +26,15 @@
         <div class="infoForm">
             <h2 id="formularioa"><?= trans("kontakt") ?></h2><br>
             <form method="POST" action="">
-                <label for="name"><?= trans("izena") ?></label><span class="required">*</span><br>
+                <label for="name"><?= trans("izena") ?>:</label><span class="required">*</span><br>
                 <input class="kont" type="text" id="name" required><br>
-                <label for="surname"><?= trans("abizena") ?></label><br>
+                <label for="surname"><?= trans("abizena") ?>:</label><br>
                 <input class="kont" type="text" id="surname"><br>
-                <label for="mail"><?= trans("email") ?></label><span class="required">*</span><br>
+                <label for="mail"><?= trans("email") ?>:</label><span class="required">*</span><br>
                 <input class="kont" type="email" id="mail" placeholder="<?= trans("emailPH") ?>" required><br>
-                <label for="tel"><?= trans("tel") ?></label><br>
+                <label for="tel"><?= trans("tel") ?>:</label><br>
                 <input class="kont" type="tel" id="tel" placeholder="123 45 67 89"><br>
-                <label for="longtext"><?= trans("subject") ?></label><span class="required">*</span><br>
+                <label for="longtext"><?= trans("subject") ?>:</label><span class="required">*</span><br>
                 <textarea class="kont" id="longtext" placeholder="<?= trans("message") ?>" required></textarea>
                 <input class="botoiak" type="submit" value="<?= trans("send") ?>"><input class="botoiak" type="reset" value="<?= trans("erase") ?>">
             </form>
