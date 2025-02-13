@@ -72,6 +72,8 @@ $conn = konexioaEgin();
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
+                        $frazkia = substr($row["faktura"], 0, 1);
+                        $urtea = substr($row["faktura"], 2, 4);
                         $data = substr($row["data"], 0, 10);
                         echo '<div id="eskaera' . $row["idEskaera"] . '" class="eskaerak"> ';
                         echo '<table class="eskaerak" width="100%">';
@@ -80,7 +82,7 @@ $conn = konexioaEgin();
                         echo '<th><b>' . trans("frazkiaesk") . ':</b><br>' . $row["fraZkia"] . '</th>';
                         echo '<th><b>' . trans("egoera") . ':</b><br>' . $row["egoera"] . '</th>';
                         echo '<th><b>' . trans("totalaEsk") . ':</b><br>' . $row["totala"] . ' €</th>';
-                        echo '<th><b>' . trans("faktura") . ':</b><br><a href="' . $row["faktura"] . '"><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        echo '<th><b>' . trans("faktura") . ':</b><br><a href="../public/fakturak/faktura_'.$frazkia.'_'.$urtea.'.pdf"><i class="fa-solid fa-file-invoice"></i></a></th>';
 
                         echo '</tr></thead><tbody>';
                         $sql1 = "SELECT idProduktua, kopurua, prezioa, data FROM eskaeraproduktua WHERE fraZkia='" . $row["fraZkia"] . "'";
