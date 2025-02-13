@@ -72,8 +72,8 @@ $conn = konexioaEgin();
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        $frazkia = substr($row["faktura"], 0, 1);
-                        $urtea = substr($row["faktura"], 2, 4);
+        
+                        list($frazkia, $urtea) = explode('/', $row["fraZkia"]);
                         $data = substr($row["data"], 0, 10);
                         echo '<div id="eskaera' . $row["idEskaera"] . '" class="eskaerak"> ';
                         echo '<table class="eskaerak" width="100%">';
