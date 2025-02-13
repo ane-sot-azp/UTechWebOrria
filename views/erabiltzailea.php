@@ -86,7 +86,7 @@ $conn = konexioaEgin();
                         if($row["egoera"] == 'bidalita'){
                         echo '<a href="../public/fakturak/faktura_'.$frazkia.'_'.$urtea.'.pdf" target:"_blanc"><i class="fa-solid fa-file-invoice"></i></a></th>';
                         }else{
-                            echo '<a href="#" onclick="fraEz()";><i class="fa-solid fa-file-invoice"></i></a></th>';
+                            echo '<a onclick="fraEz()";><i class="fa-solid fa-file-invoice"></i></a></th>';
                         }
 
 
@@ -193,8 +193,7 @@ $conn = konexioaEgin();
                     $(".content").css('margin-left', 33 + "%");
                 }
             }
-            function fraEz(e){
-                e.preventDefault();
+            function fraEz(){
                 alert("Oraindik ez da fakturarik sortu.");
             }
 
