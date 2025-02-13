@@ -82,7 +82,13 @@ $conn = konexioaEgin();
                         echo '<th><b>' . trans("frazkiaesk") . ':</b><br>' . $row["fraZkia"] . '</th>';
                         echo '<th><b>' . trans("egoera") . ':</b><br>' . $row["egoera"] . '</th>';
                         echo '<th><b>' . trans("totalaEsk") . ':</b><br>' . $row["totala"] . ' €</th>';
-                        echo '<th><b>' . trans("faktura") . ':</b><br><a href="../public/fakturak/faktura_'.$frazkia.'_'.$urtea.'.pdf"><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        echo '<th><b>' . trans("faktura") . ':</b><br>';
+                        if($row["egoera"] == 'bidalita'){
+                        echo '<a href="../public/fakturak/faktura_'.$frazkia.'_'.$urtea.'.pdf" target:"_blanc"><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        }else{
+                            echo '<a href="#" onclick="alert("Oraindik ez da fakturarik sortu."); return false;><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        }
+
 
                         echo '</tr></thead><tbody>';
                         $sql1 = "SELECT idProduktua, kopurua, prezioa, data FROM eskaeraproduktua WHERE fraZkia='" . $row["fraZkia"] . "'";
