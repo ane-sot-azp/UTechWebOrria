@@ -84,7 +84,7 @@ $conn = konexioaEgin();
                         echo '<th><b>' . trans("totalaEsk") . ':</b><br>' . $row["totala"] . ' €</th>';
                         echo '<th><b>' . trans("faktura") . ':</b><br>';
                         if($row["egoera"] == 'bidalita'){
-                        echo '<a href="../public/fakturak/faktura_'.$frazkia.'_'.$urtea.'.pdf" target:"_blanc"><i class="fa-solid fa-file-invoice"></i></a></th>';
+                        echo '<a href="https://livegoierrieskola-my.sharepoint.com/:f:/g/personal/ane_sot_azp_goierrieskola_org/EqCDTOSqRgRJmcyxBsTk8skBZHqlIho8SjPQWk0pViDP8w?e=Ezzabe/faktura_'.$frazkia.'_'.$urtea.'.pdf" target:"_blanc"><i class="fa-solid fa-file-invoice"></i></a></th>';
                         }else{
                             echo '<a onclick="fraEz()";><i class="fa-solid fa-file-invoice"></i></a></th>';
                         }
