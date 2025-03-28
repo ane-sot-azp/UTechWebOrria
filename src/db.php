@@ -3,7 +3,7 @@
 function konexioaEgin(){
 $servername = "localhost:3306";
 $username = "root";
-$password = "1mg3";
+$password = "3Taldea3";
 $dbname = "2erronka";
 
 // Crear conexión
